@@ -1,0 +1,165 @@
+/* ============================================
+   RIZNEFY DESIGN TOKENS
+   Single source of truth for all design values.
+   Edit here to reskin the entire site.
+   ============================================ */
+
+:root {
+  /* ---- Color: Background ---- */
+  --bg-base: #0A0A0A;
+  --bg-elevated: #0F1210;
+  --bg-glass: rgba(16, 185, 129, 0.05);
+  --bg-glass-hover: rgba(16, 185, 129, 0.065);
+
+  /* ---- Color: Borders ---- */
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-hairline-strong: rgba(255, 255, 255, 0.14);
+  --border-emerald: rgba(16, 185, 129, 0.35);
+  --border-emerald-strong: rgba(16, 185, 129, 0.6);
+
+  /* ---- Color: Emerald Accent ---- */
+  --emerald-300: #6EE7B7;
+  --emerald-400: #34D399;
+  --emerald-500: #10B981;
+  --emerald-600: #059669;
+  --emerald-700: #065F46;
+
+  /* ---- Color: Text ---- */
+  --text-primary: #F5F5F5;
+  --text-secondary: #B0B6B3;
+  --text-tertiary: #6B726F;
+  --text-on-emerald: #0A0A0A;
+
+  /* ---- Gradients ---- */
+  --gradient-emerald: linear-gradient(135deg, var(--emerald-700) 0%, var(--emerald-400) 100%);
+  --gradient-emerald-text: linear-gradient(100deg, var(--emerald-300) 0%, var(--emerald-400) 50%, var(--emerald-600) 100%);
+  --overlay-radial-hero: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(16, 185, 129, 0.14), transparent 70%);
+  --overlay-radial-card: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(16, 185, 129, 0.16), transparent 70%);
+
+  /* ---- Typography: Font Families ---- */
+  --font-en: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-en);
+  --font-body: var(--font-en);
+  --font-label: var(--font-en);
+
+  /* ---- Typography: Scale (mobile-first, semantic names) ---- */
+  --text-display: 2.5rem;     /* 40px - Hero only */
+  --text-h1: 2.125rem;        /* 34px */
+  --text-h2: 1.875rem;        /* 30px */
+  --text-h3: 1.25rem;         /* 20px */
+  --text-h4: 1.125rem;        /* 18px */
+  --text-lead: 1rem;          /* 16px */
+  --text-body: 0.9375rem;     /* 15px */
+  --text-small: 0.8125rem;    /* 13px */
+  --text-label: 0.6875rem;    /* 11px */
+
+  /* ---- Typography: Scale — legacy aliases -----------------------
+     Existing components.css/homepage.html reference these names
+     throughout; kept as aliases onto the closest semantic size above
+     so nothing breaks while new work can use the semantic names. */
+  --text-xs: var(--text-label);
+  --text-sm: var(--text-small);
+  --text-base: var(--text-body);
+  --text-lg: var(--text-lead);
+  --text-xl: var(--text-h4);
+  --text-2xl: var(--text-h3);
+  --text-3xl: var(--text-h2);
+  --text-4xl: var(--text-h1);
+
+  /* ---- Typography: Line Height ---- */
+  --leading-display: 1.05;
+  --leading-tight: 1.12;
+  --leading-snug: 1.25;
+  --leading-normal: 1.6;
+  --leading-bn: 1.75;
+
+  /* ---- Typography: Letter Spacing ---- */
+  --tracking-tight: -0.03em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.12em;
+  --tracking-widest: 0.14em;
+
+  /* ---- Spacing Scale ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---- Section Padding ---- */
+  --section-padding-y: var(--space-9);
+  --container-padding-x: var(--space-5);
+  --container-max-width: 1200px;
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-glow-emerald: 0 6px 20px rgba(16, 185, 129, 0.13);
+  --shadow-glow-emerald-soft: 0 4px 14px rgba(16, 185, 129, 0.08);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card-soft: 0 2px 14px rgba(0, 0, 0, 0.28);
+  --shadow-card-featured: 0 8px 36px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(16, 185, 129, 0.06);
+  --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.5);
+
+  /* ---- Blur ---- */
+  --blur-glass: 20px;
+  --blur-nav: 16px;
+
+  /* ---- Motion ---- */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-base: 350ms;
+  --duration-slow: 450ms;
+
+  /* ---- Z-Index Scale ---- */
+  --z-base: 1;
+  --z-card: 10;
+  --z-nav: 100;
+  --z-modal: 1000;
+}
+
+/* ---- Desktop Typography Overrides ---- */
+@media (min-width: 768px) {
+  :root {
+    --section-padding-y: var(--space-10);
+    --container-padding-x: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* ---- Scale: Desktop (semantic names) ---- */
+    --text-display: 4.25rem;   /* 68px - Hero only */
+    --text-h1: 2.9375rem;      /* 47px */
+    --text-h2: 2.4375rem;      /* 39px */
+    --text-h3: 1.625rem;       /* 26px */
+    --text-h4: 1.25rem;        /* 20px */
+    --text-lead: 1.125rem;     /* 18px */
+    --text-body: 1rem;         /* 16px */
+    --text-small: 0.875rem;    /* 14px */
+    --text-label: 0.75rem;     /* 12px */
+
+    /* ---- Line Height: Desktop ---- */
+    --leading-display: 1.0;
+    --leading-tight: 1.08;
+    --leading-snug: 1.2;
+    --leading-normal: 1.7;
+    --leading-bn: 1.8;
+
+    /* ---- Letter Spacing: Desktop ---- */
+    --tracking-tight: -0.04em;
+
+    /* Legacy aliases stay in sync automatically since they reference
+       these custom properties by name, not by value. */
+  }
+}

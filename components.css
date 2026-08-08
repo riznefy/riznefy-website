@@ -1,0 +1,1675 @@
+/* ============================================
+   RIZNEFY COMPONENTS
+   Reusable UI components used across all pages.
+   Depends on: tokens.css, base.css
+   ============================================ */
+
+/* ============================================
+   1. NAVIGATION
+   ============================================ */
+.nav {
+  position: sticky;
+  top: var(--space-4);
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  /* No backdrop-filter here: sticky + blur forces a repaint on every
+     scroll frame and causes jank on mid/low-end phones. Higher solid
+     opacity gives nearly the same glass look at near-zero GPU cost. */
+  background: rgba(13, 16, 15, 0.94);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
+  margin-inline: var(--space-4);
+  margin-top: var(--space-4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: border-color var(--duration-base) var(--ease-premium),
+              box-shadow var(--duration-base) var(--ease-premium);
+}
+
+.nav.is-scrolled {
+  border-color: var(--border-hairline-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.nav__logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  /* Transparent interior, not a solid fill: the badge circle itself
+     stays essentially the page's dark background. A thin white ring
+     (matching the "Riznefy" text color, --text-primary) frames it, and
+     that white ring carries a soft emerald glow. The logo mark itself
+     is a hand-vectorized SVG (assets/logo.svg) recolored flat off-white
+     (#F5F5F5, hardcoded in the SVG file itself — an <img>-loaded SVG
+     can't inherit page CSS currentColor, so this can't be done via
+     CSS here) rather than kept in its original chrome/metallic
+     gradient, so mark + ring + text all read as one consistent
+     light-on-dark treatment instead of competing colors/textures in
+     one small badge. */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  /* This is the glow intensity that was previously hover-only. Mobile
+     taps trigger :hover briefly then release it, so the badge would
+     flash bright on tap and fall back to a much dimmer default the
+     rest of the time - the premium look wasn't persistent. Making this
+     the resting state fixes that; hover/tap now goes even brighter on
+     top of this as a deliberate interactive accent instead of being
+     the only state where the glow reads as premium. */
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.78),
+              0 0 24px rgba(16, 185, 129, 0.46);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-on-emerald);
+  flex-shrink: 0;
+  padding: 6.5px;
+  overflow: hidden;
+  transition: box-shadow var(--duration-base) ease;
+}
+
+.nav__logo-badge:hover {
+  box-shadow: 0 0 14px rgba(52, 211, 153, 0.85),
+              0 0 26px rgba(16, 185, 129, 0.5);
+}
+
+.nav__logo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.nav__links {
+  display: none;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav__link {
+  position: relative;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding-bottom: 4px;
+  transition: color var(--duration-fast) ease;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--emerald-400);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-premium);
+}
+
+.nav__link:hover::after,
+.nav__link.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--emerald-400);
+}
+
+.nav__toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--duration-fast) ease;
+}
+
+.nav__toggle:hover {
+  background: var(--bg-glass-hover);
+}
+
+.nav__toggle-icon {
+  width: 18px;
+  height: 12px;
+  position: relative;
+}
+
+.nav__toggle-icon span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--emerald-400);
+  border-radius: 2px;
+  transition: transform var(--duration-base) var(--ease-premium),
+              opacity var(--duration-base) var(--ease-premium);
+}
+
+.nav__toggle-icon span:nth-child(1) { top: 0; }
+.nav__toggle-icon span:nth-child(2) { top: 5px; }
+.nav__toggle-icon span:nth-child(3) { top: 10px; }
+
+.nav__toggle.is-open .nav__toggle-icon span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.nav__toggle.is-open .nav__toggle-icon span:nth-child(2) {
+  opacity: 0;
+}
+.nav__toggle.is-open .nav__toggle-icon span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+@media (min-width: 1024px) {
+  .nav__links {
+    display: flex;
+  }
+  .nav__toggle {
+    display: none;
+  }
+}
+
+/* ---- Mobile Full-Screen Menu ---- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: var(--bg-base);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6) var(--space-5);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: opacity var(--duration-base) var(--ease-premium),
+              transform var(--duration-base) var(--ease-premium),
+              visibility 0s linear var(--duration-base);
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--duration-base) var(--ease-premium),
+              transform var(--duration-base) var(--ease-premium),
+              visibility 0s linear 0s;
+}
+
+.mobile-menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  /* Counter-transform against the parent .mobile-menu slide-in so the
+     close button stays put during the transition. Without this, a fast
+     tap on the close button right after opening can miss its target
+     because the button is still mid-translateY. */
+  transition: transform var(--duration-base) var(--ease-premium);
+}
+
+.mobile-menu:not(.is-open) .mobile-menu__header {
+  transform: translateY(12px);
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.mobile-menu__list li {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-premium),
+              transform var(--duration-base) var(--ease-premium);
+}
+
+.mobile-menu.is-open .mobile-menu__list li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu__list li:nth-child(1) { transition-delay: 60ms; }
+.mobile-menu__list li:nth-child(2) { transition-delay: 100ms; }
+.mobile-menu__list li:nth-child(3) { transition-delay: 140ms; }
+.mobile-menu__list li:nth-child(4) { transition-delay: 180ms; }
+.mobile-menu__list li:nth-child(5) { transition-delay: 220ms; }
+.mobile-menu__list li:nth-child(6) { transition-delay: 260ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu__list li {
+    transition-delay: 0ms !important;
+  }
+}
+
+.mobile-menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-label);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-primary);
+  padding-block: var(--space-2);
+}
+
+.mobile-menu__link-icon {
+  color: var(--emerald-400);
+  font-size: var(--text-lg);
+}
+
+/* ============================================
+   2. BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  padding: var(--space-4) var(--space-6);
+  transition: transform var(--duration-fast) var(--ease-premium),
+              box-shadow var(--duration-base) var(--ease-premium),
+              border-color var(--duration-fast) ease,
+              background-position var(--duration-base) ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 100ms;
+}
+
+.btn svg {
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--gradient-emerald);
+  background-size: 160% 100%;
+  background-position: 0% 0%;
+  color: var(--text-on-emerald);
+  box-shadow: var(--shadow-glow-emerald-soft);
+}
+
+.btn--primary:hover {
+  box-shadow: var(--shadow-glow-emerald);
+  background-position: 100% 0%;
+}
+
+.btn--primary:active {
+  box-shadow: var(--shadow-glow-emerald-soft);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--emerald-400);
+  border: 1px solid var(--border-emerald);
+}
+
+.btn--ghost:hover {
+  border-color: var(--border-emerald-strong);
+  background: var(--bg-glass);
+}
+
+.btn--icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn__arrow {
+  display: inline-block;
+  transition: transform var(--duration-fast) ease;
+}
+
+.btn:hover .btn__arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ---- Floating Action Buttons ----
+   Hidden until user scrolls past the hero (.is-visible added by JS
+   scroll listener at 480px). This prevents overlap with in-hero CTAs. */
+.fab-whatsapp,
+.fab-book-call {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity var(--duration-base) var(--ease-premium),
+              transform var(--duration-base) var(--ease-premium),
+              visibility 0s linear var(--duration-base);
+}
+
+.fab-whatsapp.is-visible,
+.fab-book-call.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--duration-base) var(--ease-premium),
+              transform var(--duration-base) var(--ease-premium),
+              visibility 0s linear 0s;
+}
+
+.fab-whatsapp {
+  position: fixed;
+  bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  right: var(--space-4);
+  z-index: var(--z-nav);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow-emerald);
+}
+
+.fab-whatsapp:hover {
+  transform: scale(1.06);
+}
+
+.fab-whatsapp.is-visible:hover {
+  transform: translateY(0) scale(1.06);
+}
+
+.fab-whatsapp svg {
+  width: 24px;
+  height: 24px;
+}
+
+.fab-book-call {
+  position: fixed;
+  bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  left: var(--space-4);
+  right: var(--space-4);
+  z-index: var(--z-nav);
+  background: var(--gradient-emerald);
+  color: var(--text-on-emerald);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  box-shadow: var(--shadow-glow-emerald);
+  white-space: nowrap;
+}
+
+.fab-book-call svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 640px) {
+  .fab-book-call {
+    left: auto;
+    right: var(--space-6);
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fab-book-call {
+    right: var(--space-8);
+    bottom: var(--space-6);
+  }
+  .fab-whatsapp {
+    right: var(--space-8);
+    bottom: 100px;
+  }
+}
+
+/* ============================================
+   3. BADGES / EYEBROWS
+   ============================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--emerald-400);
+  border: 1px solid var(--border-emerald);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-glass);
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--emerald-400);
+  flex-shrink: 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--emerald-400);
+  margin-bottom: var(--space-4);
+}
+
+.eyebrow--center {
+  justify-content: center;
+}
+
+.eyebrow__line {
+  width: 24px;
+  height: 1px;
+  background: var(--emerald-400);
+}
+
+.eyebrow--center {
+  justify-content: center;
+}
+
+/* ============================================
+   4. GLASS CARD (base surface)
+   ============================================ */
+.glass-card {
+  position: relative;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  overflow: hidden;
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  transition: border-color var(--duration-base) ease,
+              transform var(--duration-base) var(--ease-premium);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-radial-card);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  border-color: var(--border-emerald);
+}
+
+.glass-card--interactive:hover {
+  transform: translateY(-4px);
+}
+
+/* ============================================
+   5. LIVING METRIC CARD (Signature Component)
+   ============================================ */
+.metric-panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card-featured), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.metric-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-radial-card);
+  pointer-events: none;
+}
+
+.metric-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.metric-panel__label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--emerald-400);
+  margin-bottom: var(--space-2);
+}
+
+.metric-panel__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+}
+
+.metric-panel__pill {
+  flex-shrink: 0;
+  border: 1px solid var(--border-emerald);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+}
+
+.metric-panel__pill-label {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  display: block;
+}
+
+.metric-panel__pill-value {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--emerald-400);
+  font-weight: 600;
+}
+
+.metric-panel__chart {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--space-6);
+}
+
+.metric-panel__chart path.chart-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.45));
+  transition: stroke-dashoffset 0.9s var(--ease-premium);
+  /* Static glow only, no looping pulse: animating filter:drop-shadow
+     is one of the more expensive things a browser can do, and looping
+     it forever after the reveal already happened was a constant tax
+     on rendering with little visual payoff. */
+}
+
+.metric-panel.is-visible .metric-panel__chart path.chart-line {
+  stroke-dashoffset: 0;
+}
+
+.metric-panel__chart path.chart-fill {
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-premium) 0.3s;
+}
+
+.metric-panel.is-visible .metric-panel__chart path.chart-fill {
+  opacity: 1;
+}
+
+.metric-panel__stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.metric-stat {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color var(--duration-base) ease;
+}
+
+.metric-stat:hover {
+  border-color: var(--border-emerald);
+}
+
+.metric-stat__label {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.metric-stat__value {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (min-width: 640px) {
+  .metric-panel__title { font-size: var(--text-2xl); }
+}
+
+/* ---- Medium-Tier Card: Metric Pair (CVR + AOV split) ----
+   Sits between the featured metric-panel (large) and metric-mini
+   (small) to complete the 3-tier card hierarchy. */
+.metric-pair {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-4);
+  box-shadow: var(--shadow-card-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color var(--duration-base) ease;
+}
+
+.metric-pair:hover {
+  border-color: var(--border-emerald);
+}
+
+.metric-pair__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: center;
+}
+
+.metric-pair__label {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.metric-pair__value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.metric-pair__value small {
+  font-size: 0.6em;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+}
+
+.metric-pair__delta {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.metric-pair__delta--up {
+  color: var(--emerald-400);
+}
+
+.metric-pair__divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--border-hairline);
+  margin-inline: var(--space-2);
+}
+.metric-mini {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.metric-mini__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald-400);
+  flex-shrink: 0;
+}
+
+.metric-mini__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.metric-mini__body {
+  flex: 1;
+}
+
+.metric-mini__label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.metric-mini__value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+}
+
+.metric-mini__delta {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--emerald-400);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   6. SECTION HEADER PATTERN
+   ============================================ */
+.section-header {
+  max-width: 640px;
+  margin-bottom: var(--space-8);
+}
+
+.section-header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-header__title {
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Emerald gradient emphasis for the 2nd/3rd line of every section
+   heading, matching the hero treatment - applies wherever an <em>
+   sits inside a heading across the page (section headers, the why
+   panel, the trust block, and the final CTA panel), not just the
+   hero title. */
+.section-header__title em,
+.why-panel__title em,
+.trust-block__title em,
+.cta-panel__title em {
+  font-style: italic;
+  font-weight: 600;
+  background: var(--gradient-emerald-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header__lead {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   7. CASE STUDIES
+   ============================================ */
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .case-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.case-card__tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--emerald-400);
+  border: 1px solid var(--border-emerald);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+}
+
+.case-card__title {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  line-height: var(--leading-snug);
+}
+
+.case-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.case-card__stats {
+  display: flex;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-hairline);
+}
+
+.case-card__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.case-card__stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.case-card__stat-label {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.case-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--emerald-400);
+}
+
+.case-studies__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-8);
+}
+
+/* ============================================
+   8. SERVICES
+   ============================================ */
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.service-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-emerald);
+  background: var(--bg-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald-400);
+  flex-shrink: 0;
+  transition: box-shadow var(--duration-base) ease,
+              border-color var(--duration-base) ease;
+}
+
+.service-card:hover .service-card__icon {
+  border-color: var(--border-emerald-strong);
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.45);
+}
+
+.service-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.service-card__title {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+}
+
+.service-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--emerald-400);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* ============================================
+   9. TESTIMONIALS
+   ============================================ */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.testimonial-card__quote-mark {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--emerald-400);
+  opacity: 0.5;
+}
+
+.testimonial-card__body {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.testimonial-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-hairline);
+}
+
+.testimonial-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+}
+
+.testimonial-card__role {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+/* ============================================
+   FAQ ACCORDION
+   ============================================ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faq-item {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--duration-base) ease;
+}
+
+.faq-item:hover {
+  border-color: var(--border-emerald);
+}
+
+.faq-item.is-open {
+  border-color: var(--border-emerald);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.faq-item__chevron {
+  width: 20px;
+  height: 20px;
+  color: var(--emerald-400);
+  flex-shrink: 0;
+  transition: transform var(--duration-base) var(--ease-premium);
+}
+
+.faq-item.is-open .faq-item__chevron {
+  transform: rotate(180deg);
+}
+
+/* Grid-rows trick for animating to "auto" height: a raw max-height
+   transition either cuts off longer answers or leaves a long empty
+   tail on short ones, since max-height has to be hardcoded to some
+   fixed number either way. Animating grid-template-rows from 0fr to
+   1fr sidesteps that — it always settles at the answer's real height,
+   whatever that happens to be, and still transitions smoothly. */
+.faq-item__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-base) var(--ease-premium);
+}
+
+.faq-item.is-open .faq-item__answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-item__answer > p {
+  overflow: hidden;
+  padding: 0 var(--space-6) var(--space-5);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   CTA PANEL
+   ============================================ */
+.cta-panel {
+  position: relative;
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.cta-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-radial-card);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-panel__title {
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.cta-panel__lead {
+  font-size: var(--text-lg);
+  max-width: 44ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-7);
+}
+
+.cta-panel__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .cta-panel {
+    padding: var(--space-9) var(--space-8);
+  }
+  .cta-panel__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  border-top: 1px solid var(--border-hairline);
+  padding-top: var(--space-8);
+  /* Extra bottom clearance so the fixed floating "Book a Call" button
+     (which sits at viewport bottom, ~56-72px tall with its own offset)
+     never overlaps the footer's last line (copyright). */
+  padding-bottom: calc(var(--space-8) + 72px);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  padding-bottom: var(--space-7);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 320px;
+}
+
+.footer__logo-link {
+  display: inline-block;
+  margin-bottom: var(--space-1);
+}
+
+.footer__logo-lockup {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.footer__tagline {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  max-width: 28ch;
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__col-title {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--emerald-400);
+  margin-bottom: var(--space-1);
+}
+
+.footer__link {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  transition: color var(--duration-fast) ease;
+  width: fit-content;
+}
+
+.footer__link:hover {
+  color: var(--emerald-400);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  align-items: center;
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--border-hairline);
+  text-align: center;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.footer__social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: border-color var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+
+.footer__social-link:hover {
+  border-color: var(--border-emerald);
+  color: var(--emerald-400);
+}
+
+.footer__social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+@media (min-width: 768px) {
+  .footer__top {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-6);
+  }
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ============================================
+   9. BLUEPRINT
+   Compact numbered process cards. Previously had
+   no dedicated CSS and fell back to unstyled h3/p
+   defaults, which read as oversized and cramped
+   on mobile (Image 2 reference).
+   ============================================ */
+.blueprint-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.blueprint-item {
+  padding: var(--space-4);
+}
+
+.blueprint-item__title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+  line-height: var(--leading-snug);
+}
+
+.blueprint-item__desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+@media (min-width: 768px) {
+  .blueprint-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+/* ============================================
+   10. WHY PANEL
+   ============================================ */
+.why-panel {
+  padding: var(--space-7) var(--space-6);
+  text-align: center;
+}
+
+.why-panel__title {
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+.why-panel__body {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+}
+
+.why-panel__body:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   11. TRUST BLOCK
+   ============================================ */
+.trust-block {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.trust-block__title {
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+.trust-block__body {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   12. CTA PANEL
+   ============================================ */
+.cta-panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-radial-card);
+  pointer-events: none;
+}
+
+.cta-panel__title,
+.cta-panel__lead,
+.cta-panel__actions {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-panel__title {
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+.cta-panel__lead {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-inline: auto;
+  margin-bottom: var(--space-7);
+}
+
+.cta-panel__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* ============================================
+   13. CASE STUDIES CTA
+   ============================================ */
+.case-studies__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-7);
+}
+
+/* ============================================
+   13b. UTILITY: DESKTOP/TABLET-ONLY SECTIONS
+   Hides a section entirely on mobile. Used for
+   sections that read better as a wide comparison
+   layout and add too much scroll length on phones.
+   ============================================ */
+.section--desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .section--desktop-only {
+    display: block;
+  }
+}
+
+/* ============================================
+   14. COMPARISON TABLE (Most Agencies vs. Riznefy)
+   Row-based, not two disconnected lists: each
+   Riznefy differentiator sits directly against the
+   default it replaces, so the contrast reads as one
+   argument instead of two separate bullet dumps.
+   ============================================ */
+.compare-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.compare-row--header {
+  display: none;
+}
+
+.compare-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.compare-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+}
+
+.compare-cell--against {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.compare-cell--for {
+  background: var(--bg-glass);
+  border-color: var(--border-emerald);
+}
+
+.compare-cell__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.compare-cell__icon--against {
+  background: rgba(239, 68, 68, 0.12);
+  color: #F87171;
+}
+
+.compare-cell__icon--for {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--emerald-400);
+}
+
+.compare-cell__title {
+  display: block;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.compare-cell--against .compare-cell__title {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  text-decoration-color: rgba(239, 68, 68, 0.4);
+}
+
+.compare-cell__desc {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  line-height: var(--leading-normal);
+}
+
+@media (min-width: 768px) {
+  .compare-row--header {
+    display: flex;
+    gap: var(--space-4);
+    padding-inline: var(--space-5);
+  }
+  .compare-row__col {
+    flex: 1;
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+  }
+  .compare-row__col--against {
+    color: var(--text-tertiary);
+  }
+  .compare-row__col--for {
+    color: var(--emerald-400);
+  }
+  .compare-row {
+    flex-direction: row;
+  }
+  .compare-cell {
+    flex: 1;
+  }
+}
+
+/* ============================================
+   15. COMMITMENT GRID (Trust Block support cards)
+   ============================================ */
+.commitment-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.commitment-card {
+  text-align: center;
+}
+
+.commitment-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald-400);
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+}
+
+.commitment-card__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.commitment-card__title {
+  display: block;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.commitment-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+@media (min-width: 768px) {
+  .commitment-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

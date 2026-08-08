@@ -1,0 +1,275 @@
+/* ============================================
+   RIZNEFY BASE STYLES
+   Global resets + default typography. Every page
+   loads this before components.css. Depends on:
+   tokens.css (must be linked first).
+   ============================================ */
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Visible keyboard-focus ring, brand-consistent (emerald) instead of
+   the browser's default blue outline, which clashes with the dark
+   theme. Only shows for keyboard/assistive-tech focus (:focus-visible),
+   not on mouse/touch clicks, so it never appears as an unwanted box
+   around a tapped button or card. */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.btn:focus-visible,
+.glass-card--interactive:focus-visible {
+  outline: 2px solid var(--emerald-400);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm, 4px);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ---- Body defaults ---- */
+body {
+  /* Subtle emerald-black ambience instead of flat pure black: two very
+     faint fixed radial washes (top-left, bottom-right) sit under the
+     base color. Kept extremely low-opacity and fixed (not scrolling)
+     so it reads as ambient atmosphere, not a visible "green tint". */
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(16, 185, 129, 0.07), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 100% 100%, rgba(16, 185, 129, 0.05), transparent 65%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Prevent the iOS/Android pull-to-refresh bounce and rubber-band
+     overscroll from revealing blank space above/below the page —
+     keeps the premium feel intact at the scroll boundaries. */
+  overscroll-behavior-y: none;
+}
+
+/* ============================================
+   MOBILE-PREMIUM LAYER
+   Global touch, viewport, and interaction polish
+   applied site-wide via base.css so every page
+   inherits it automatically.
+   ============================================ */
+
+/* Real viewport height that accounts for mobile browser chrome
+   (address bar) show/hide, instead of the older 100vh which jumps
+   and clips content as the browser UI resizes. Falls back to vh
+   automatically in browsers that don't support dvh. */
+:root {
+  --viewport-height: 100vh;
+}
+@supports (height: 100dvh) {
+  :root {
+    --viewport-height: 100dvh;
+  }
+}
+
+/* Remove the default gray tap-highlight flash on mobile browsers so
+   every tap uses our own emerald feedback instead of a generic gray
+   box — this alone makes interactions feel considerably more
+   premium and intentional. */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Comfortable, non-zooming form inputs: iOS Safari auto-zooms into
+   any input/textarea/select with a computed font-size under 16px,
+   which feels jarring and unpolished. Enforcing 16px minimum (while
+   letting larger contexts keep their own size) avoids that entirely. */
+input,
+textarea,
+select {
+  font-size: max(16px, 1em);
+}
+
+/* Minimum comfortable touch target (44x44px, the standard mobile
+   accessibility baseline) for primary interactive controls — buttons,
+   toggles, and standalone tappable elements. Applied narrowly rather
+   than to every anchor site-wide: small inline text links (nav items,
+   footer links, in-paragraph links) already sit inside a large enough
+   tappable row/container that forcing their own 44px box would only
+   add unwanted vertical whitespace around the text without improving
+   real tap comfort. */
+button,
+[role="button"],
+input[type="checkbox"],
+input[type="radio"],
+.btn,
+.nav__toggle,
+.mobile-menu__close,
+.fab-whatsapp,
+.fab-book-call,
+.faq-item__question,
+.filter-pill,
+.tab-btn,
+.system-nav__pill,
+.service-nav__pill {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Disable hover-driven visual states on touch devices. Without this,
+   tapping a card or link on mobile can leave it visually "stuck" in
+   its hover state until the user taps elsewhere, which reads as a
+   glitch rather than a premium detail. Hover effects still work
+   normally on devices that have a real pointer (mouse/trackpad).
+   Pill-style hovers (filter-pill, system-nav__pill, service-nav__pill)
+   are defined per-page rather than here in components.css, but share
+   the same class names site-wide, so they're safe to reset globally. */
+@media (hover: none) {
+  .glass-card--interactive:hover {
+    transform: none;
+  }
+  .filter-pill:hover,
+  .system-nav__pill:hover,
+  .service-nav__pill:hover {
+    border-color: var(--border-hairline);
+    color: var(--text-secondary);
+  }
+}
+
+/* Every in-page anchor target (services, systems, legal sections,
+   FAQ items, etc.) gets consistent breathing room above it so the
+   sticky nav never overlaps the heading it jumped to — applied
+   globally instead of needing to be repeated per page/section. */
+[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Safe-area awareness for the floating WhatsApp/Book-a-Call buttons
+   is applied directly to their `bottom` value in components.css
+   (margin-bottom has no effect on position:fixed elements), so that
+   fix lives there rather than here. */
+
+
+/* ---- Headings ---- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+h1 {
+  font-size: var(--text-h1);
+  line-height: var(--leading-tight);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  line-height: var(--leading-tight);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  line-height: var(--leading-snug);
+}
+
+h4 {
+  font-size: var(--text-h4);
+  line-height: var(--leading-snug);
+}
+
+/* Hero display size overrides h1's default h1 size
+   only where the .hero__title class is present. */
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+}
+
+.hero__title em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Gradient fill lives on each word span (not the parent em) because the
+   hero title is split into per-word spans by main.js for the word-by-word
+   reveal animation. background-clip:text + transparent fill on a parent
+   does not carry over to child elements that have no background of their
+   own - the child text simply renders transparent-on-transparent and
+   disappears. Applying the gradient directly to each .hero__word inside
+   the em keeps the same visual gradient look while actually being visible. */
+.hero__title em .hero__word {
+  background: var(--gradient-emerald-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  font-family: var(--font-body);
+}
+
+/* ---- Layout container ---- */
+.container {
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
