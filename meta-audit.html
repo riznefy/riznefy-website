@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Audit Your Meta Ad Account in 30 Minutes — Riznefy</title>
+<meta name="description" content="The exact checklist we run before touching any budget — creative fatigue, audience overlap, event match quality, and the three settings most accounts get wrong.">
+<link rel="canonical" href="https://riznefy.com/meta-audit.html">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+
+<meta property="og:title" content="How to Audit Your Meta Ad Account in 30 Minutes">
+<meta property="og:description" content="The exact checklist we run before touching any budget — creative fatigue, audience overlap, event match quality, and the three settings most accounts get wrong.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://riznefy.com/assets/og-image.jpg">
+<meta property="og:url" content="https://riznefy.com/meta-audit.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     ARTICLE READING THEME
+     Deliberately separate design system from the
+     main dark/emerald site — pure white background,
+     true black text, serif body copy for a premium
+     editorial reading feel. No nav, no logo — this
+     page exists to be read, not to sell.
+     ============================================ */
+  :root {
+    --ink: #14140F;
+    --ink-secondary: #4A4A42;
+    --ink-tertiary: #8A8A7E;
+    --paper: #FFFFFF;
+    --paper-tint: #FAFAF7;
+    --hairline: #E8E8E1;
+    --accent: #0E9F6E;
+    --accent-dim: #0E9F6E1A;
+    --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --measure: 680px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  .article-shell {
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding: 0 24px;
+  }
+
+  /* ---- Back link ---- */
+  .back-nav {
+    padding-top: 32px;
+    padding-bottom: 8px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink-secondary);
+    text-decoration: none;
+    padding: 8px 0;
+  }
+  .back-link:hover {
+    color: var(--ink);
+  }
+  .back-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.15s ease;
+  }
+  .back-link:hover svg {
+    transform: translateX(-3px);
+  }
+
+  /* ---- Article header ---- */
+  .article-header {
+    padding-top: 32px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .article-tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+  .article-dek {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-secondary);
+    margin: 0 0 24px;
+    max-width: 60ch;
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--ink-tertiary);
+  }
+  .article-meta__dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--ink-tertiary);
+  }
+
+  /* ---- Article body ---- */
+  .article-body {
+    padding-top: 40px;
+    padding-bottom: 24px;
+    font-size: 18px;
+  }
+  .article-body p {
+    margin: 0 0 24px;
+    color: var(--ink);
+  }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 48px 0 16px;
+    line-height: 1.3;
+  }
+  .article-body h2 .h2-number {
+    color: var(--accent);
+    margin-right: 10px;
+  }
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  .article-body ul,
+  .article-body ol {
+    margin: 0 0 24px;
+    padding-left: 1.4em;
+  }
+  .article-body li {
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .article-body strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .article-body a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  /* ---- Pull quote / callout ---- */
+  .callout {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink);
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 24px;
+    margin: 36px 0;
+  }
+
+  /* ---- Checklist box ---- */
+  .checklist {
+    background: var(--paper-tint);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin: 32px 0;
+  }
+  .checklist__title {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 16px;
+  }
+  .checklist ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .checklist li:last-child { margin-bottom: 0; }
+  .checklist li svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    color: var(--accent);
+  }
+
+  /* ---- Data table ---- */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0 32px;
+    font-family: var(--font-display);
+    font-size: 14.5px;
+  }
+  .data-table th {
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-tertiary);
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink);
+  }
+  .data-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* ---- Divider ---- */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--hairline);
+    margin: 44px 0;
+  }
+
+  /* ---- End of article: back + CTA ---- */
+  .article-footer {
+    padding: 40px 0 64px;
+  }
+  .article-footer__note {
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--ink-secondary);
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+  .footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: var(--ink);
+    padding: 14px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+  }
+  .back-link--footer {
+    color: var(--ink-secondary);
+  }
+
+  @media (max-width: 480px) {
+    .article-title { font-size: 1.7rem; }
+    .article-dek { font-size: 17px; }
+    .article-body { font-size: 17px; }
+    .checklist { padding: 22px 20px 18px; }
+    .data-table { font-size: 13px; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Audit Your Meta Ad Account in 30 Minutes",
+  "description": "The exact checklist we run before touching any budget — creative fatigue, audience overlap, event match quality, and the three settings most accounts get wrong.",
+  "image": "https://riznefy.com/assets/og-image.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "Riznefy",
+    "url": "https://riznefy.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Riznefy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://riznefy.com/assets/logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://riznefy.com/meta-audit.html"
+  },
+  "articleSection": "Paid Media"
+}
+</script>
+</head>
+<body>
+
+<div class="article-shell">
+
+  <div class="back-nav">
+    <a href="insights.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Resources
+    </a>
+  </div>
+
+  <header class="article-header">
+    <span class="article-tag">Paid Media</span>
+    <h1 class="article-title">How to Audit Your Meta Ad Account in 30 Minutes</h1>
+    <p class="article-dek">The exact checklist we run before touching any budget — creative fatigue, audience overlap, event match quality, and the three settings most accounts get wrong.</p>
+    <div class="article-meta">
+      <span>Riznefy</span>
+      <span class="article-meta__dot"></span>
+      <span>8 min read</span>
+      <span class="article-meta__dot"></span>
+      <span>Paid Media</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+
+    <p>Most Meta ad accounts we take over aren't broken because of bad targeting or a weak product. They're broken because nobody has looked under the hood in months. Budgets get increased on gut feel, creative keeps running past the point of fatigue, and the tracking setup that was "good enough" at launch quietly stopped being accurate somewhere along the way.</p>
+
+    <p>This is the audit we run on every account before we touch a single dollar of budget — in the order we actually run it, so you can do the same thing in about 30 minutes with your own account open next to this page.</p>
+
+    <div class="callout">If you can't explain why your ROAS is what it is right now, you don't have a strategy — you have a number you're hoping stays where it is.</div>
+
+    <h2><span class="h2-number">01</span>Check Event Match Quality first</h2>
+    <p>Before you look at a single campaign, open <strong>Events Manager → Data Sources → your pixel</strong> and check the Event Match Quality (EMQ) score on your Purchase event. This number tells you how much of your reported performance you can actually trust.</p>
+    <p>A score below 6 means Meta is working with incomplete customer data — email, phone, and other matching parameters aren't reaching the platform reliably. Everything downstream (ROAS, cost per purchase, lookalike audience quality) is only as good as this number.</p>
+
+    <div class="checklist">
+      <div class="checklist__title">What to check</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> EMQ score is 7 or higher on your primary Purchase event</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Conversions API (CAPI) is connected alongside the browser pixel, not instead of it</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Deduplication between pixel and CAPI events is confirmed (check the "Deduplicated Events" column)</li>
+      </ul>
+    </div>
+
+    <h2><span class="h2-number">02</span>Look for creative fatigue before blaming targeting</h2>
+    <p>The single most common misdiagnosis we see: an account owner assumes their audience is "tapped out" when the real problem is that their top three creatives have been running unchanged for six or eight weeks. Frequency and CTR decline are almost always a creative signal before they're an audience signal.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Signal</th><th>Healthy Range</th><th>Warning Sign</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Frequency (cold audience, 7-day)</td><td>Under 2.0</td><td>Above 2.5</td></tr>
+        <tr><td>CTR trend (week over week)</td><td>Stable or rising</td><td>Declining 20%+ for 2+ weeks</td></tr>
+        <tr><td>Hook rate (3-sec views ÷ impressions)</td><td>25%+</td><td>Below 15%</td></tr>
+      </tbody>
+    </table>
+
+    <p>If frequency is climbing on a cold-audience ad set while CTR falls, the fix is new creative angles — not a bigger budget or a narrower audience. Refreshing the hook and first three seconds of the video usually resolves this faster than any targeting change.</p>
+
+    <h2><span class="h2-number">03</span>Check for audience overlap between ad sets</h2>
+    <p>Open <strong>Ads Manager → Audiences → Overlap Tool</strong> and compare your active ad sets against each other. Meaningful overlap (above roughly 20-25%) means you're bidding against your own campaigns in the auction — Meta's system ends up splitting spend inefficiently between two ad sets chasing the same person.</p>
+    <p>This is especially common when an account has both a broad Advantage+ campaign and several manual interest-based ad sets running simultaneously. In the post-Andromeda era, the fix is usually consolidation — fewer, broader ad sets with distinct creative angles, rather than narrow audience stacking.</p>
+
+    <h2><span class="h2-number">04</span>Confirm your attribution window matches your sales cycle</h2>
+    <p>Default attribution windows (typically 7-day click, 1-day view) work fine for impulse-purchase products under $50. They systematically undercount performance for considered purchases — anything with a multi-day decision process, higher price point, or B2B sales cycle.</p>
+    <p>Cross-reference Meta's reported conversions against your actual order data in Shopify, GA4, or your CRM for the same date range. A gap of more than 15-20% usually points to an attribution mismatch, not a tracking failure — which changes how you should read every ROAS number in the account going forward.</p>
+
+    <h2><span class="h2-number">05</span>Review the three settings most accounts get wrong</h2>
+
+    <div class="checklist">
+      <div class="checklist__title">Quick wins we find almost every time</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>Campaign budget optimization left on for a testing campaign</strong> — CBO redistributes spend toward whichever ad set is winning early, which quietly starves new creative of the impressions it needs to prove itself.</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>Placements left fully automatic without a placement-level performance check</strong> — Audience Network and some Facebook placements can drag down blended CPA for certain products even when the campaign-level number looks fine.</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>No exclusion audience for recent purchasers</strong> — without this, you're paying to re-acquire someone who already bought in the last purchase cycle, inflating both spend and frequency for no incremental revenue.</li>
+      </ul>
+    </div>
+
+    <hr class="rule">
+
+    <h2><span class="h2-number">06</span>What to do with what you find</h2>
+    <p>Not every issue above needs fixing today. Prioritize in this order: tracking accuracy first (EMQ, attribution), because every other number in the account depends on it being right. Then creative fatigue, because it's usually the fastest lever to pull. Structural issues — overlap, CBO, exclusions — come last, since they require more careful testing to change without disrupting an account's existing learning phase.</p>
+    <p>An audit like this doesn't replace ongoing management, but it tells you within half an hour whether an account's underperformance is a strategy problem or a hygiene problem — and those two things get fixed in completely different ways.</p>
+
+  </article>
+
+  <footer class="article-footer">
+    <p class="article-footer__note">Want a second pair of eyes on your account instead of running this yourself?</p>
+    <div class="footer-actions">
+      <a href="contact.html" class="btn-primary">
+        Book a Strategy Call
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="insights.html" class="back-link back-link--footer">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Resources
+      </a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

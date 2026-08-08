@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Riznefy</title>
+<meta name="description" content="The terms that govern your use of riznefy.com and, where applicable, our services.">
+<link rel="canonical" href="https://riznefy.com/terms.html">
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+
+<meta property="og:title" content="Terms of Service — Riznefy">
+<meta property="og:description" content="The terms that govern your use of riznefy.com and our services.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://riznefy.com/assets/og-image.jpg">
+<meta property="og:url" content="https://riznefy.com/terms.html">
+<meta property="og:site_name" content="Riznefy">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  /* ============================================
+     LEGAL PAGE — PAGE-SPECIFIC STYLES
+     Shared design system with privacy.html.
+     ============================================ */
+
+  .page-header {
+    padding-top: var(--space-2);
+    text-align: center;
+    position: relative;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 280px;
+    background: var(--overlay-radial-hero);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page-header__content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  .page-header__title {
+    margin-bottom: var(--space-3);
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+  .page-header__updated {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    color: var(--text-tertiary, #8a8f8c);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  .legal-shell {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .legal-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    padding: var(--space-5);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+    margin-bottom: var(--space-7);
+  }
+  .legal-toc a {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: var(--tracking-wide);
+  }
+  .legal-toc a:hover { color: var(--emerald-400); }
+
+  .legal-section {
+    scroll-margin-top: 90px;
+    padding-bottom: var(--space-7);
+    margin-bottom: var(--space-7);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .legal-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .legal-section__num {
+    display: inline-block;
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--emerald-400);
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: var(--space-2);
+  }
+  .legal-section__title {
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    line-height: 1.3;
+  }
+  .legal-section p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-section ul {
+    margin: 0 0 var(--space-4);
+    padding-left: 1.3em;
+  }
+  .legal-section li {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-2);
+  }
+  .legal-section strong { color: var(--text-primary); font-weight: 600; }
+  .legal-section a { color: var(--emerald-400); }
+
+  .legal-disclaimer {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary, #8a8f8c);
+    line-height: var(--leading-normal);
+    font-style: italic;
+    padding: var(--space-5);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-7);
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://riznefy.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Terms of Service",
+      "item": "https://riznefy.com/terms.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav" aria-label="Primary navigation">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" fetchpriority="high"></span>
+    <span>Riznefy</span>
+  </a>
+
+  <div class="nav__links">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="blueprint.html" class="nav__link">Blueprint</a>
+    <a href="insights.html" class="nav__link">Resources</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="contact.html" class="btn btn--primary">
+      Book a Call <span class="btn__arrow">↗</span>
+    </a>
+  </div>
+
+  <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+    <span class="nav__toggle-icon"><span></span><span></span><span></span></span>
+  </button>
+</nav>
+
+<!-- ============================================
+     MOBILE FULL-SCREEN MENU
+     ============================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__header">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" loading="lazy"></span>
+      <span>Riznefy</span>
+    </a>
+    <button class="nav__toggle mobile-menu__close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 5l14 14M19 5L5 19" stroke="var(--emerald-400)" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="mobile-menu__list">
+    <li><a href="index.html" class="mobile-menu__link">Home <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="services.html" class="mobile-menu__link">Services <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="blueprint.html" class="mobile-menu__link">Blueprint <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="insights.html" class="mobile-menu__link">Resources <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="about.html" class="mobile-menu__link">About <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="contact.html" class="mobile-menu__link">Contact <span class="mobile-menu__link-icon">↗</span></a></li>
+  </ul>
+
+  <a href="contact.html" class="btn btn--primary" style="width: 100%; margin-bottom: var(--space-4);">
+    Book a Strategy Call <span class="btn__arrow">↗</span>
+  </a>
+  <a href="blueprint.html" class="btn btn--ghost" style="width: 100%;">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Explore the Blueprint
+  </a>
+</div>
+
+<!-- ============================================
+     PAGE HEADER
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <div class="page-header__content">
+      <h1 class="page-header__title">Terms of Service</h1>
+      <span class="page-header__updated">Last updated: August 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================
+     LEGAL CONTENT
+     ============================================ -->
+<section class="section" style="padding-top: var(--space-6);">
+  <div class="container">
+    <div class="legal-shell">
+
+      <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-7);">
+        These Terms of Service ("Terms") govern your use of riznefy.com (the "Site") and, where you've engaged us as a client, the services Riznefy provides. By using the Site or engaging our services, you agree to these Terms.
+      </p>
+
+      <div class="legal-section" id="acceptance">
+        <span class="legal-section__num">01</span>
+        <h2 class="legal-section__title">Acceptance of Terms</h2>
+        <p>By accessing or using riznefy.com, you confirm that you're able to enter into a binding agreement and agree to be bound by these Terms and our <a href="privacy.html">Privacy Policy</a>. If you do not agree, please discontinue use of the Site.</p>
+      </div>
+
+      <div class="legal-section" id="website-use">
+        <span class="legal-section__num">02</span>
+        <h2 class="legal-section__title">Use of This Website</h2>
+        <p>This Site and its content — including text, graphics, illustrative frameworks, and resource guides — are provided for informational purposes. You agree to use the Site only for lawful purposes and not to:</p>
+        <ul>
+          <li>Attempt to gain unauthorized access to any part of the Site or its underlying systems</li>
+          <li>Copy, reproduce, or republish substantial portions of our content without permission</li>
+          <li>Use automated tools to scrape or extract content from the Site at scale</li>
+        </ul>
+        <p>Content on the Resources pages and elsewhere on this Site — including the "Sample Systems" strategy breakdowns — is illustrative and educational. It reflects our general approach and thinking, not guaranteed outcomes or historical client results.</p>
+      </div>
+
+      <div class="legal-section" id="services">
+        <span class="legal-section__num">03</span>
+        <h2 class="legal-section__title">Our Services</h2>
+        <p>If you engage Riznefy as a client, the specific scope, deliverables, timeline, and pricing for that engagement will be defined in a separate proposal or service agreement, which takes precedence over these general Terms for anything it specifically addresses.</p>
+        <p>We apply proven strategic frameworks and data-driven execution to every engagement. That said, marketing outcomes ultimately depend on multiple factors beyond our direct control — including platform algorithm changes, market conditions, product-market fit, and the client's own operational execution. We do not guarantee specific results, rankings, revenue, or return on ad spend for any engagement.</p>
+      </div>
+
+      <div class="legal-section" id="payments">
+        <span class="legal-section__num">04</span>
+        <h2 class="legal-section__title">Payments &amp; Refunds</h2>
+        <p>Payment terms (amount, schedule, and accepted methods) are set out in each client's individual service agreement or invoice. Unless otherwise agreed in writing, fees paid for services already rendered are non-refundable, since they reflect time, strategy, and work already delivered.</p>
+        <p>Any ad spend paid directly to platforms (Meta, Google, TikTok, etc.) is separate from our service fees and subject to those platforms' own terms.</p>
+      </div>
+
+      <div class="legal-section" id="ip">
+        <span class="legal-section__num">05</span>
+        <h2 class="legal-section__title">Intellectual Property</h2>
+        <p>All content on this Site — including our logo, brand assets, copywriting, and the "Riznefy" name — is owned by Riznefy and protected by applicable intellectual property laws.</p>
+        <p>For active clients, ownership of deliverables works as follows, unless a service agreement specifies otherwise:</p>
+        <ul>
+          <li><strong>Client-owned:</strong> paid deliverables created specifically for that client's engagement — ad creative, campaign assets, copy, and similar work product delivered as part of the scoped services.</li>
+          <li><strong>Riznefy-owned:</strong> our proprietary frameworks, methodologies, systems, SOPs, templates, and internal processes used to produce those deliverables remain our intellectual property, even when applied within a client engagement.</li>
+        </ul>
+        <p>Where a specific service agreement addresses ownership differently, that agreement takes precedence over this general Term.</p>
+      </div>
+
+      <div class="legal-section" id="third-party">
+        <span class="legal-section__num">06</span>
+        <h2 class="legal-section__title">Third-Party Platforms</h2>
+        <p>Our services often involve third-party platforms — Meta, Google, TikTok, GoHighLevel, and others. Your use of those platforms is governed by their own respective terms of service, which we do not control and are not responsible for. We are not liable for outages, policy changes, account restrictions, or other actions taken by third-party platforms.</p>
+      </div>
+
+      <div class="legal-section" id="liability">
+        <span class="legal-section__num">07</span>
+        <h2 class="legal-section__title">Limitation of Liability</h2>
+        <p>To the fullest extent permitted by applicable law, Riznefy shall not be liable for any indirect, incidental, or consequential damages arising from your use of this Site or our services, including but not limited to lost profits, lost data, or business interruption — except where such limitation is not permitted by law.</p>
+      </div>
+
+      <div class="legal-section" id="termination">
+        <span class="legal-section__num">08</span>
+        <h2 class="legal-section__title">Termination</h2>
+        <p>We reserve the right to restrict or terminate access to this Site for anyone who violates these Terms. For active client engagements, termination terms (notice period, handling of work in progress, final invoicing) are governed by the applicable service agreement.</p>
+      </div>
+
+      <div class="legal-section" id="changes">
+        <span class="legal-section__num">09</span>
+        <h2 class="legal-section__title">Changes to These Terms</h2>
+        <p>We may revise these Terms from time to time. The "Last updated" date at the top of this page reflects the most recent revision. Continued use of the Site after changes are posted constitutes acceptance of the revised Terms.</p>
+      </div>
+
+      <div class="legal-section" id="contact-us" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+        <span class="legal-section__num">10</span>
+        <h2 class="legal-section__title">Contact Us</h2>
+        <p>Questions about these Terms? Reach out:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:riznefy@gmail.com">riznefy@gmail.com</a></li>
+          <li><strong>WhatsApp:</strong> <a href="https://wa.me/8801712650589" target="_blank" rel="noopener">+880 1712-650589</a></li>
+        </ul>
+      </div>
+
+      <p class="legal-disclaimer">These Terms of Service are provided as a general reference and are not a substitute for tailored legal advice. Specific client engagements are governed by their individual service agreements. If you need terms customized to your jurisdiction or specific business requirements, we recommend consulting a qualified legal professional.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo-link">
+          <img src="assets/footer-logo.png" alt="Riznefy" class="footer__logo-lockup">
+        </a>
+        <p class="footer__tagline">Performance marketing for ambitious e-commerce and D2C brands.</p>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Agency</span>
+        <a href="services.html" class="footer__link">Services</a>
+        <a href="blueprint.html" class="footer__link">Blueprint</a>
+        <a href="insights.html" class="footer__link">Resources</a>
+        <a href="about.html" class="footer__link">About</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Services</span>
+        <a href="services.html#paid-media" class="footer__link">Meta &amp; Google Ads</a>
+        <a href="services.html#tiktok" class="footer__link">TikTok Advertising</a>
+        <a href="services.html#tracking" class="footer__link">Conversion Tracking</a>
+        <a href="services.html#automation" class="footer__link">Automation</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Legal</span>
+        <a href="privacy.html" class="footer__link">Privacy Policy</a>
+        <a href="terms.html" class="footer__link">Terms of Service</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M14 8.5h-1.5c-.6 0-1 .4-1 1V11h2.4l-.3 2.4h-2.1V21h-2.5v-7.6H7V11h1.9V9.2c0-1.9 1.1-3 2.9-3H14v2.3z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 015 0V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <span class="footer__copyright">Strategy · Systems · Scale — © 2026 Riznefy</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     FLOATING ACTIONS
+     ============================================ -->
+<a href="https://wa.me/8801712650589" class="fab-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l4.93-1.38C8.42 21.5 10.15 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M8.5 8.5c.2-.4.6-.4.9-.4h.6c.2 0 .5 0 .7.5.3.6.9 2 1 2.1.1.2.1.4 0 .6-.1.2-.2.3-.4.5s-.4.4-.5.6c-.2.2-.3.4-.1.7.2.4.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.6-.2.2.1 1.6.8 1.9 1 .3.1.5.2.5.3.1.4.1.9-.1 1.4-.2.5-1.2 1.1-1.7 1.1-.4 0-.9.1-3-.7-2.6-1-4.2-3.7-4.3-3.9-.1-.2-1-1.3-1-2.5 0-1.2.6-1.8.8-2z" fill="#0A0A0A"/>
+  </svg>
+</a>
+<a href="contact.html" class="fab-book-call">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 3h3.5l1.5 5-2.5 1.5a11 11 0 0 0 5.5 5.5L14 12.5l5 1.5v3.5c0 1.1-.9 2-2 2C9.4 19.5 4.5 14.6 4.5 8c0-1.1.9-2 2-2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>
+  Book a Call
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

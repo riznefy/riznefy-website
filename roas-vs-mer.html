@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROAS vs. MER: Which Number Should You Trust? — Riznefy</title>
+<meta name="description" content="Why platform-reported ROAS and blended MER tell different stories — and which one should actually drive your budget decisions.">
+<link rel="canonical" href="https://riznefy.com/roas-vs-mer.html">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+
+<meta property="og:title" content="ROAS vs. MER: Which Number Should You Trust?">
+<meta property="og:description" content="Why platform-reported ROAS and blended MER tell different stories — and which one should actually drive your budget decisions.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://riznefy.com/assets/og-image.jpg">
+<meta property="og:url" content="https://riznefy.com/roas-vs-mer.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     ARTICLE READING THEME (shared pattern with
+     meta-audit.html — see that file for the full
+     rationale comment on this design system).
+     ============================================ */
+  :root {
+    --ink: #14140F;
+    --ink-secondary: #4A4A42;
+    --ink-tertiary: #8A8A7E;
+    --paper: #FFFFFF;
+    --paper-tint: #FAFAF7;
+    --hairline: #E8E8E1;
+    --accent: #0E9F6E;
+    --accent-dim: #0E9F6E1A;
+    --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --measure: 680px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  .article-shell {
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding: 0 24px;
+  }
+
+  .back-nav { padding-top: 32px; padding-bottom: 8px; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink-secondary);
+    text-decoration: none;
+    padding: 8px 0;
+  }
+  .back-link:hover { color: var(--ink); }
+  .back-link svg { width: 16px; height: 16px; transition: transform 0.15s ease; }
+  .back-link:hover svg { transform: translateX(-3px); }
+
+  .article-header {
+    padding-top: 32px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .article-tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+  .article-dek {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-secondary);
+    margin: 0 0 24px;
+    max-width: 60ch;
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--ink-tertiary);
+  }
+  .article-meta__dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-tertiary); }
+
+  .article-body { padding-top: 40px; padding-bottom: 24px; font-size: 18px; }
+  .article-body p { margin: 0 0 24px; color: var(--ink); }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 48px 0 16px;
+    line-height: 1.3;
+  }
+  .article-body h2 .h2-number { color: var(--accent); margin-right: 10px; }
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  .article-body ul, .article-body ol { margin: 0 0 24px; padding-left: 1.4em; }
+  .article-body li { margin-bottom: 10px; color: var(--ink); }
+  .article-body strong { font-weight: 600; color: var(--ink); }
+  .article-body a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .callout {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink);
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 24px;
+    margin: 36px 0;
+  }
+
+  .checklist {
+    background: var(--paper-tint);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin: 32px 0;
+  }
+  .checklist__title {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 16px;
+  }
+  .checklist ul { margin: 0; padding: 0; list-style: none; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .checklist li:last-child { margin-bottom: 0; }
+  .checklist li svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 3px; color: var(--accent); }
+
+  /* ---- Math/worked-example box (used more heavily in this article) ---- */
+  .math-box {
+    background: var(--ink);
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px 28px 26px;
+    margin: 32px 0;
+    font-family: var(--font-display);
+  }
+  .math-box__label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7FE6BE;
+    margin-bottom: 18px;
+  }
+  .math-box__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-size: 15px;
+  }
+  .math-box__row:last-child { border-bottom: none; }
+  .math-box__row span:first-child { color: rgba(255,255,255,0.7); }
+  .math-box__row span:last-child { font-weight: 600; }
+  .math-box__row--total {
+    margin-top: 6px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+  }
+  .math-box__row--total span:last-child {
+    font-size: 22px;
+    color: #7FE6BE;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0 32px;
+    font-family: var(--font-display);
+    font-size: 14.5px;
+  }
+  .data-table th {
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-tertiary);
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--hairline); color: var(--ink); }
+  .data-table tr:last-child td { border-bottom: none; }
+
+  .rule { border: none; border-top: 1px solid var(--hairline); margin: 44px 0; }
+
+  .article-footer { padding: 40px 0 64px; }
+  .article-footer__note {
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--ink-secondary);
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+  .footer-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: var(--ink);
+    padding: 14px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover { background: var(--accent); }
+  .back-link--footer { color: var(--ink-secondary); }
+
+  @media (max-width: 480px) {
+    .article-title { font-size: 1.7rem; }
+    .article-dek { font-size: 17px; }
+    .article-body { font-size: 17px; }
+    .checklist, .math-box { padding: 22px 20px 18px; }
+    .data-table { font-size: 13px; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+    .math-box__row { font-size: 13.5px; }
+    .math-box__row--total span:last-child { font-size: 19px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ROAS vs. MER: Which Number Should You Trust?",
+  "description": "Why platform-reported ROAS and blended MER tell different stories — and which one should actually drive your budget decisions.",
+  "image": "https://riznefy.com/assets/og-image.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "Riznefy",
+    "url": "https://riznefy.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Riznefy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://riznefy.com/assets/logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://riznefy.com/roas-vs-mer.html"
+  },
+  "articleSection": "Analytics"
+}
+</script>
+</head>
+<body>
+
+<div class="article-shell">
+
+  <div class="back-nav">
+    <a href="insights.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Resources
+    </a>
+  </div>
+
+  <header class="article-header">
+    <span class="article-tag">Analytics</span>
+    <h1 class="article-title">ROAS vs. MER: Which Number Should You Trust?</h1>
+    <p class="article-dek">Why platform-reported ROAS and blended MER tell different stories — and which one should actually drive your budget decisions.</p>
+    <div class="article-meta">
+      <span>Riznefy</span>
+      <span class="article-meta__dot"></span>
+      <span>7 min read</span>
+      <span class="article-meta__dot"></span>
+      <span>Analytics</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+
+    <p>Open your Meta Ads Manager and Google Ads account side by side on a good week, and you'll likely see two numbers that both look great. Meta might report a 4.2x ROAS. Google might report 3.8x. Both dashboards are technically telling the truth about what they can see — and both are quietly overstating the picture, because neither knows what the other one already claimed credit for.</p>
+
+    <p>This is the single most common reason a founder or marketing manager feels like their numbers "don't add up" against their actual bank balance. The fix isn't a better dashboard. It's understanding which number each metric is actually built to answer.</p>
+
+    <div class="callout">Platform ROAS answers "how did this specific channel perform?" MER answers "did marketing make money this month?" You need both — but only one of them should decide your total budget.</div>
+
+    <h2><span class="h2-number">01</span>What each metric actually measures</h2>
+    <p><strong>ROAS (Return on Ad Spend)</strong> is revenue attributed to a specific platform, divided by spend on that platform. It's calculated inside each platform's own attribution model, using whatever tracking data that platform can see — which is the root of the problem.</p>
+    <p><strong>MER (Marketing Efficiency Ratio)</strong>, sometimes called blended ROAS, is total store revenue across every channel, divided by total marketing spend across every channel. It doesn't ask which platform gets credit for which sale. It only asks whether the whole marketing engine is profitable.</p>
+
+    <h2><span class="h2-number">02</span>Where the gap actually comes from</h2>
+    <p>Attribution overlap is the biggest driver. A customer sees a Meta ad on Monday, searches your brand name on Google on Wednesday, then buys. Meta's pixel sees the click and claims the sale. Google's tracking sees the branded search click and also claims the sale. Your actual revenue only happened once — but two dashboards each recorded a full conversion for it.</p>
+
+    <div class="math-box">
+      <div class="math-box__label">Worked Example</div>
+      <div class="math-box__row"><span>Meta reports</span><span>4.2x ROAS</span></div>
+      <div class="math-box__row"><span>Google reports</span><span>3.8x ROAS</span></div>
+      <div class="math-box__row"><span>Total store revenue</span><span>$50,000</span></div>
+      <div class="math-box__row"><span>Total marketing spend</span><span>$20,000</span></div>
+      <div class="math-box__row math-box__row--total"><span>Real blended MER</span><span>2.5x</span></div>
+    </div>
+
+    <p>Both platforms "look great" in isolation. The number that actually determines whether this was a good month — $50,000 in revenue against $20,000 in total spend — is meaningfully lower than either platform's self-reported figure. That 2.5x is what you'd use to decide whether to increase or cut total marketing budget next month.</p>
+
+    <h2><span class="h2-number">03</span>When to use which number</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Decision</th><th>Use This Number</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Total marketing budget up or down</td><td>Blended MER</td></tr>
+        <tr><td>Reporting real performance to a client or investor</td><td>Blended MER</td></tr>
+        <tr><td>Which creative wins inside one campaign</td><td>Platform ROAS</td></tr>
+        <tr><td>Which ad set to scale within one platform</td><td>Platform ROAS</td></tr>
+        <tr><td>Comparing Meta's performance to Google's</td><td>Platform ROAS (with caution)</td></tr>
+      </tbody>
+    </table>
+
+    <p>Platform ROAS is still useful — it's just useful for a narrower question than most people ask of it. Inside Meta, comparing one ad set's ROAS to another's is a fair fight, because attribution overlap affects both roughly equally. The moment you start comparing Meta's number to Google's number, or using either one alone to decide total spend, you're comparing two numbers that were never designed to be compared.</p>
+
+    <h2><span class="h2-number">04</span>Turning MER into a spending decision: POAS</h2>
+    <p>Knowing your blended MER tells you how the business performed last month. To decide how aggressively to spend next month, the number that matters is your <strong>target ROAS based on actual profit margin</strong> — sometimes called POAS (Profit on Ad Spend).</p>
+
+    <div class="callout">Target ROAS = 1 ÷ Net Profit Margin</div>
+
+    <p>A brand running a 35% net margin needs a minimum ROAS of roughly 2.86x just to break even on the marketing spend itself, before accounting for any other overhead. Below that number, every "successful" campaign by a platform's own reporting is actually losing the business money in real terms.</p>
+
+    <div class="checklist">
+      <div class="checklist__title">Set up your own MER tracking</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pull total store revenue from Shopify/your storefront, not from any ad platform</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Add up total spend across every paid channel — Meta, Google, TikTok, everything</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Divide revenue by spend — this is your MER, recalculated weekly or monthly</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Compare against your POAS target (1 ÷ net margin) to know if you're actually profitable</li>
+      </ul>
+    </div>
+
+    <hr class="rule">
+
+    <h2><span class="h2-number">05</span>The honest way to report this</h2>
+    <p>If you're reporting to a client, a partner, or your own leadership, lead with blended MER — it's the number that survives contact with the bank account. Platform ROAS belongs in the appendix, as a diagnostic tool for optimizing within a channel, not as the headline result.</p>
+    <p>The accounts that scale predictably aren't the ones with the highest platform-reported ROAS. They're the ones whose owners know the difference between the two numbers and have stopped making budget decisions based on the more flattering one.</p>
+
+  </article>
+
+  <footer class="article-footer">
+    <p class="article-footer__note">Not sure what your real blended MER actually is right now?</p>
+    <div class="footer-actions">
+      <a href="contact.html" class="btn-primary">
+        Book a Strategy Call
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="insights.html" class="back-link back-link--footer">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Resources
+      </a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

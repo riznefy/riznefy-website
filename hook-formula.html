@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hook Formula Behind Scroll-Stopping Ads — Riznefy</title>
+<meta name="description" content="A breakdown of the first-three-seconds structure we test across every new creative batch, with examples of what to cut.">
+<link rel="canonical" href="https://riznefy.com/hook-formula.html">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+
+<meta property="og:title" content="The Hook Formula Behind Scroll-Stopping Ads">
+<meta property="og:description" content="A breakdown of the first-three-seconds structure we test across every new creative batch, with examples of what to cut.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://riznefy.com/assets/og-image.jpg">
+<meta property="og:url" content="https://riznefy.com/hook-formula.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     ARTICLE READING THEME (shared pattern — see
+     meta-audit.html for the full rationale comment).
+     ============================================ */
+  :root {
+    --ink: #14140F;
+    --ink-secondary: #4A4A42;
+    --ink-tertiary: #8A8A7E;
+    --paper: #FFFFFF;
+    --paper-tint: #FAFAF7;
+    --hairline: #E8E8E1;
+    --accent: #0E9F6E;
+    --accent-dim: #0E9F6E1A;
+    --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --measure: 680px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  .article-shell { max-width: var(--measure); margin-inline: auto; padding: 0 24px; }
+
+  .back-nav { padding-top: 32px; padding-bottom: 8px; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink-secondary);
+    text-decoration: none;
+    padding: 8px 0;
+  }
+  .back-link:hover { color: var(--ink); }
+  .back-link svg { width: 16px; height: 16px; transition: transform 0.15s ease; }
+  .back-link:hover svg { transform: translateX(-3px); }
+
+  .article-header { padding-top: 32px; padding-bottom: 40px; border-bottom: 1px solid var(--hairline); }
+  .article-tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+  .article-dek {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-secondary);
+    margin: 0 0 24px;
+    max-width: 60ch;
+  }
+  .article-meta { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 13px; color: var(--ink-tertiary); }
+  .article-meta__dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-tertiary); }
+
+  .article-body { padding-top: 40px; padding-bottom: 24px; font-size: 18px; }
+  .article-body p { margin: 0 0 24px; color: var(--ink); }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 48px 0 16px;
+    line-height: 1.3;
+  }
+  .article-body h2 .h2-number { color: var(--accent); margin-right: 10px; }
+  .article-body h3 { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; color: var(--ink); margin: 32px 0 12px; }
+  .article-body ul, .article-body ol { margin: 0 0 24px; padding-left: 1.4em; }
+  .article-body li { margin-bottom: 10px; color: var(--ink); }
+  .article-body strong { font-weight: 600; color: var(--ink); }
+  .article-body a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .callout {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink);
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 24px;
+    margin: 36px 0;
+  }
+
+  .checklist {
+    background: var(--paper-tint);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin: 32px 0;
+  }
+  .checklist__title {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 16px;
+  }
+  .checklist ul { margin: 0; padding: 0; list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 12px; font-family: var(--font-body); font-size: 16.5px; margin-bottom: 12px; color: var(--ink); }
+  .checklist li:last-child { margin-bottom: 0; }
+  .checklist li svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 3px; color: var(--accent); }
+
+  /* ---- Hook example card (this article's unique element) ---- */
+  .hook-card {
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+  .hook-card__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .hook-card__name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .hook-card__example {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .hook-card__why {
+    font-family: var(--font-display);
+    font-size: 13.5px;
+    color: var(--ink-tertiary);
+    line-height: 1.5;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0 32px;
+    font-family: var(--font-display);
+    font-size: 14.5px;
+  }
+  .data-table th {
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-tertiary);
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--hairline); color: var(--ink); }
+  .data-table tr:last-child td { border-bottom: none; }
+
+  .rule { border: none; border-top: 1px solid var(--hairline); margin: 44px 0; }
+
+  .article-footer { padding: 40px 0 64px; }
+  .article-footer__note { font-family: var(--font-body); font-style: italic; color: var(--ink-secondary); font-size: 16px; margin-bottom: 32px; }
+  .footer-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: var(--ink);
+    padding: 14px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover { background: var(--accent); }
+  .back-link--footer { color: var(--ink-secondary); }
+
+  @media (max-width: 480px) {
+    .article-title { font-size: 1.7rem; }
+    .article-dek { font-size: 17px; }
+    .article-body { font-size: 17px; }
+    .checklist { padding: 22px 20px 18px; }
+    .hook-card { padding: 18px 20px; }
+    .hook-card__example { font-size: 16px; }
+    .data-table { font-size: 13px; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Hook Formula Behind Scroll-Stopping Ads",
+  "description": "A breakdown of the first-three-seconds structure we test across every new creative batch, with examples of what to cut.",
+  "image": "https://riznefy.com/assets/og-image.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "Riznefy",
+    "url": "https://riznefy.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Riznefy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://riznefy.com/assets/logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://riznefy.com/hook-formula.html"
+  },
+  "articleSection": "Creative Strategy"
+}
+</script>
+</head>
+<body>
+
+<div class="article-shell">
+
+  <div class="back-nav">
+    <a href="insights.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Resources
+    </a>
+  </div>
+
+  <header class="article-header">
+    <span class="article-tag">Creative Strategy</span>
+    <h1 class="article-title">The Hook Formula Behind Scroll-Stopping Ads</h1>
+    <p class="article-dek">A breakdown of the first-three-seconds structure we test across every new creative batch, with examples of what to cut.</p>
+    <div class="article-meta">
+      <span>Riznefy</span>
+      <span class="article-meta__dot"></span>
+      <span>6 min read</span>
+      <span class="article-meta__dot"></span>
+      <span>Creative Strategy</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+
+    <p>Every ad we build lives or dies in its first three seconds. Not the offer, not the price, not even the product — the hook. If someone's thumb doesn't pause in that window, nothing else in the ad matters, because nobody sees it.</p>
+
+    <p>This isn't a creative-writing exercise. It's a structural one. The strongest hooks we've tested share a specific anatomy, and most underperforming ads fail for one of a handful of predictable, fixable reasons.</p>
+
+    <div class="callout">A hook's only job is to stop the scroll. It doesn't need to explain the offer, mention the price, or even show the product clearly yet — it needs to make someone's thumb pause for one more second.</div>
+
+    <h2><span class="h2-number">01</span>The two-layer hook structure</h2>
+    <p>Every effective hook has two layers, and they happen almost simultaneously — but they do different jobs.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Layer</th><th>Timing</th><th>Job</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Visual hook</td><td>0–1 second</td><td>Interrupt the scroll — movement, unexpected color, a face, a surprising action</td></tr>
+        <tr><td>Verbal/text hook</td><td>1–3 seconds</td><td>Give a reason to keep watching — the actual "why should I care" moment</td></tr>
+      </tbody>
+    </table>
+
+    <p>Most ads that fail in testing get the visual layer right but skip the verbal layer, or the reverse — strong opening line over a static, unremarkable shot. You need both working together. The visual earns the pause; the words earn the next five seconds.</p>
+
+    <h2><span class="h2-number">02</span>Eight hook formulas that consistently test well</h2>
+    <p>These aren't the only hooks that work, but they're the ones we return to across categories and platforms because the underlying psychological trigger is durable — it doesn't wear out as fast as a clever one-off line does.</p>
+
+    <div class="hook-card">
+      <span class="hook-card__num">1</span>
+      <div class="hook-card__name">Direct Callout</div>
+      <div class="hook-card__example">"If you've ever felt embarrassed about [problem], watch this."</div>
+      <div class="hook-card__why">Works because it filters the audience instantly — the right person feels personally addressed within the first two words.</div>
+    </div>
+
+    <div class="hook-card">
+      <span class="hook-card__num">2</span>
+      <div class="hook-card__name">Shock Statistic</div>
+      <div class="hook-card__example">"7 out of 10 people are making this mistake without realizing it."</div>
+      <div class="hook-card__why">A specific, slightly alarming number creates an information gap the brain wants closed immediately.</div>
+    </div>
+
+    <div class="hook-card">
+      <span class="hook-card__num">3</span>
+      <div class="hook-card__name">Myth Bust</div>
+      <div class="hook-card__example">"Everyone tells you to do X. Here's why that's actually working against you."</div>
+      <div class="hook-card__why">Contradicting common belief triggers curiosity — people want to know if something they assumed is wrong.</div>
+    </div>
+
+    <div class="hook-card">
+      <span class="hook-card__num">4</span>
+      <div class="hook-card__name">Before-You-Scroll</div>
+      <div class="hook-card__example">"Give this 5 seconds before you scroll past — it might save you money."</div>
+      <div class="hook-card__why">A direct, almost meta request for attention works surprisingly often because it's honest about what it's asking for.</div>
+    </div>
+
+    <div class="hook-card">
+      <span class="hook-card__num">5</span>
+      <div class="hook-card__name">Result-First</div>
+      <div class="hook-card__example">"This one change took my [metric] from X to Y."</div>
+      <div class="hook-card__why">Leading with the outcome rather than the process makes the payoff visible before you've asked for any of the viewer's time.</div>
+    </div>
+
+    <div class="hook-card">
+      <span class="hook-card__num">6</span>
+      <div class="hook-card__name">Cold-Open Story</div>
+      <div class="hook-card__example">"...and that's the moment I realized the problem wasn't the product at all."</div>
+      <div class="hook-card__why">Dropping in mid-story, without context, creates an immediate question: what happened before this?</div>
+    </div>
+
+    <div class="hook-card">
+      <span class="hook-card__num">7</span>
+      <div class="hook-card__name">Us vs. Them</div>
+      <div class="hook-card__example">"People still doing [old way] vs. people who switched to [new way]."</div>
+      <div class="hook-card__why">Comparison format is fast to process visually and taps into a fear of being left behind on the "old" side.</div>
+    </div>
+
+    <div class="hook-card">
+      <span class="hook-card__num">8</span>
+      <div class="hook-card__name">Confession</div>
+      <div class="hook-card__example">"Honestly? I didn't believe this would work either."</div>
+      <div class="hook-card__why">Admitting initial skepticism disarms the viewer's own skepticism — it feels more like a real recommendation than an ad.</div>
+    </div>
+
+    <h2><span class="h2-number">03</span>What to cut from a weak hook</h2>
+    <p>When a hook underperforms in testing, the fix is almost never "make it more creative." It's usually one of these specific, boring problems:</p>
+
+    <div class="checklist">
+      <div class="checklist__title">Common hook-killers</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>Logo or branding shown before the hook lands</strong> — the moment something looks like an ad, the brain's ad-blocker (real or mental) kicks in and the scroll continues.</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>The hook explains the product instead of creating curiosity</strong> — "Introducing our new skincare serum" is information, not a hook. It answers a question nobody asked yet.</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>Text hook takes longer than 3 seconds to read</strong> — if the on-screen text requires pausing the video to finish reading it, it's too long for a sound-off scrolling environment.</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>No visual movement in the first frame</strong> — a static opening shot, even a beautiful one, doesn't interrupt a thumb mid-scroll the way motion does.</li>
+      </ul>
+    </div>
+
+    <h2><span class="h2-number">04</span>How to actually test this</h2>
+    <p>Don't test one "great" hook against a generic control. Test five genuinely different angles against the same body content — a direct callout, a shock stat, a myth bust, and two others from the list above. The angle that wins isn't necessarily the most clever one; it's the one that resonates with the specific audience segment the algorithm ends up showing it to.</p>
+    <p>Track hook rate specifically — the percentage of people who watch past the 3-second mark. A hook rate above 30% is generally a strong signal on Meta; below 15-20% usually means the hook needs to be rebuilt, not just the body of the ad.</p>
+
+    <hr class="rule">
+
+    <p>The best-performing hook in your account six months from now probably doesn't exist yet. Hooks fatigue the same way any creative does — which is exactly why this is a formula to keep testing against, not a single line to write once and reuse forever.</p>
+
+  </article>
+
+  <footer class="article-footer">
+    <p class="article-footer__note">Want your next creative batch built around this exact testing structure?</p>
+    <div class="footer-actions">
+      <a href="contact.html" class="btn-primary">
+        Book a Strategy Call
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="insights.html" class="back-link back-link--footer">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Resources
+      </a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

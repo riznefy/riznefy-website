@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Riznefy | Full-Stack Growth Systems</title>
+<meta name="description" content="Meta &amp; Google Ads, TikTok, conversion tracking, creative, analytics, automation, and CRO — engineered as one connected profit system, not seven separate vendors.">
+<link rel="canonical" href="https://riznefy.com/services.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:title" content="Services — Riznefy | Full-Stack Growth Systems">
+<meta property="og:description" content="Meta & Google Ads, TikTok, tracking, creative, analytics, automation, and CRO — one connected profit system.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://riznefy.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://riznefy.com/services.html">
+<meta property="og:site_name" content="Riznefy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services — Riznefy | Full-Stack Growth Systems">
+<meta name="twitter:description" content="Meta & Google Ads, TikTok, tracking, creative, analytics, automation, and CRO — one connected profit system.">
+<meta name="twitter:image" content="https://riznefy.com/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  /* ============================================
+     SERVICES PAGE — PAGE-SPECIFIC STYLES
+     ============================================ */
+
+  .page-header {
+    padding-top: var(--space-2);
+    text-align: center;
+    position: relative;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 400px;
+    background: var(--overlay-radial-hero);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page-header__content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  .page-header .hero__badge-wrap {
+    margin-bottom: var(--space-6);
+  }
+  .page-header__title {
+    margin-bottom: var(--space-4);
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.14;
+    letter-spacing: -0.04em;
+  }
+  .page-header__title em {
+    font-style: italic;
+    font-weight: 600;
+    background: var(--gradient-emerald-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .page-header__lead {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin-inline: auto;
+  }
+
+  /* ---- Quick-jump service pills ---- */
+  .service-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    max-width: 820px;
+    margin-inline: auto;
+  }
+  .service-nav__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-pill);
+    padding: var(--space-3) var(--space-5);
+    background: var(--bg-glass);
+    transition: border-color var(--duration-base) ease, color var(--duration-base) ease;
+    white-space: nowrap;
+  }
+  .service-nav__pill:hover,
+  .service-nav__pill:focus-visible {
+    border-color: var(--border-emerald);
+    color: var(--emerald-400);
+  }
+
+  /* ---- Service block (alternating icon + content) ---- */
+  .service-block {
+    scroll-margin-top: 90px;
+    padding-block: var(--space-7);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .service-block:last-of-type {
+    border-bottom: none;
+  }
+  .service-block__head {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+  .service-block__icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-emerald);
+    color: var(--emerald-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .service-block__icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .service-block__eyebrow {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--emerald-400);
+    margin-bottom: var(--space-2);
+  }
+  .service-block__title {
+    color: var(--text-primary);
+    font-size: var(--text-2xl);
+    line-height: 1.2;
+    margin-bottom: var(--space-3);
+  }
+  .service-block__lead {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 680px;
+  }
+
+  .service-block__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 860px) {
+    .service-block__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-6);
+    }
+  }
+
+  .service-block__body p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .service-block__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .included-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .included-list__title {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--text-tertiary, #8a8f8c);
+    margin-bottom: var(--space-1);
+  }
+  .included-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+  .included-item svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--emerald-400);
+    margin-top: 2px;
+  }
+  .included-item strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* ---- Benchmark strip (illustrative, non-fabricated) ---- */
+  .benchmark-note {
+    margin-top: var(--space-5);
+    font-size: var(--text-xs);
+    color: var(--text-tertiary, #8a8f8c);
+    line-height: var(--leading-normal);
+    font-style: italic;
+  }
+
+  /* ---- Pricing (unified, no tier grid) ---- */
+  .pricing-panel {
+    padding: var(--space-7) var(--space-6);
+    text-align: center;
+  }
+  .pricing-panel__title {
+    color: var(--text-primary);
+    margin-bottom: var(--space-5);
+    font-size: clamp(1.5rem, 5.5vw, 2.25rem);
+    line-height: 1.25;
+    max-width: 620px;
+    margin-inline: auto;
+  }
+  .pricing-panel__title em {
+    font-style: italic;
+    font-weight: 600;
+    background: var(--gradient-emerald-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .pricing-panel__body {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin-inline: auto;
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-relaxed);
+  }
+  .pricing-panel__body:last-of-type {
+    margin-bottom: var(--space-6);
+  }
+  .pricing-factors {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    max-width: 620px;
+    margin-inline: auto;
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+  @media (min-width: 640px) {
+    .pricing-factors {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .pricing-factor {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+  .pricing-factor svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--emerald-400);
+    margin-top: 2px;
+  }
+
+  /* ============================================
+     PREMIUM HERO — SPLIT LAYOUT + RADIAL DIAGRAM
+     ============================================ */
+  .services-hero {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-7);
+    position: relative;
+    overflow: hidden;
+  }
+  .services-hero::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -10%;
+    width: 60%;
+    height: 70%;
+    background: var(--overlay-radial-hero);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .services-hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  @media (min-width: 980px) {
+    .services-hero__grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: var(--space-7);
+    }
+  }
+
+  .services-hero__title {
+    font-size: clamp(2.1rem, 7vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--space-5);
+  }
+  .services-hero__title em {
+    font-style: italic;
+    font-weight: 600;
+    background: var(--gradient-emerald-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .services-hero__lead {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 520px;
+    margin-bottom: var(--space-6);
+  }
+
+  /* ---- Trust badge cards (Data-Driven / Full-Funnel / Profit-Focused) ---- */
+  .trust-badge-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+  @media (max-width: 640px) {
+    .trust-badge-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  .trust-badge-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+  }
+  .trust-badge-card svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--emerald-400);
+    margin-top: 2px;
+  }
+  .trust-badge-card__title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .trust-badge-card__desc {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .services-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  /* ---- Radial diagram (static SVG-driven) ---- */
+  .radial-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;
+  }
+  .radial-diagram__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px dashed var(--border-hairline);
+  }
+  .radial-diagram__ring--inner {
+    inset: 16%;
+    border-style: solid;
+    border-color: var(--border-emerald);
+    opacity: 0.35;
+  }
+  .radial-diagram__core {
+    position: absolute;
+    inset: 34%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(52, 211, 153, 0.22), rgba(10, 10, 10, 0.9) 70%);
+    border: 1px solid var(--border-emerald);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.25), inset 0 0 30px rgba(16, 185, 129, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .radial-diagram__core img {
+    width: 44%;
+    height: 44%;
+    opacity: 0.95;
+  }
+  .radial-node {
+    position: absolute;
+    width: 84px;
+    /* Only shift horizontally to center the block on its X position;
+       vertical centering is handled per-node below so the icon DOT
+       itself sits on the ring, not the vertical midpoint of the
+       whole dot+label+sub text block. Without this, nodes whose
+       label wraps taller (e.g. bottom nodes) visually push their
+       dot inward off the ring. */
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  /* Shift the whole node up by exactly half the dot's height plus
+     its bottom margin, so the DOT's center — not the block's — lands
+     on the ring position defined by top/left below. */
+  .radial-node {
+    margin-top: calc(-22px - var(--space-2) / 2);
+  }
+  @media (max-width: 560px) {
+    .radial-node {
+      margin-top: calc(-18px - var(--space-2) / 2);
+    }
+  }
+  .radial-node__dot {
+    width: 44px;
+    height: 44px;
+    margin-inline: auto;
+    margin-bottom: var(--space-2);
+    border-radius: 50%;
+    border: 1px solid var(--border-emerald);
+    background: var(--bg-surface, #0f1310);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--emerald-400);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.18);
+  }
+  .radial-node__dot svg {
+    width: 18px;
+    height: 18px;
+  }
+  .radial-node__label {
+    font-family: var(--font-label);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+  .radial-node__sub {
+    font-size: 10px;
+    color: var(--text-tertiary, #8a8f8c);
+    line-height: 1.3;
+  }
+  /* Node positions — 7 points around the circle, 360/7 ≈ 51.43deg apart,
+     starting from the top and going clockwise, expressed as absolute
+     percentage coordinates for predictable placement across screen sizes. */
+  /* Node positions — mathematically precise 7-fold symmetry.
+     Each node sits exactly 360/7 ≈ 51.43deg apart on the circle,
+     starting from the top and going clockwise, computed via
+     trigonometry (radius 45% from center) rather than approximated
+     by hand — approximated values previously left an uneven gap on
+     one side since they didn't actually divide the circle evenly
+     into 7 parts. */
+  .radial-node--1 { top: 5.0%;  left: 50.0%; }
+  .radial-node--2 { top: 21.9%; left: 85.2%; }
+  .radial-node--3 { top: 60.0%; left: 93.9%; }
+  .radial-node--4 { top: 90.5%; left: 69.5%; }
+  .radial-node--5 { top: 90.5%; left: 30.5%; }
+  .radial-node--6 { top: 60.0%; left: 6.1%;  }
+  .radial-node--7 { top: 21.9%; left: 14.8%; }
+
+  @media (max-width: 560px) {
+    .radial-diagram {
+      max-width: 340px;
+    }
+    .radial-node {
+      width: 66px;
+    }
+    .radial-node__dot {
+      width: 36px;
+      height: 36px;
+    }
+    .radial-node__label {
+      font-size: 9px;
+    }
+    .radial-node__sub {
+      display: none;
+    }
+  }
+
+  /* ---- Seven-module preview list (below radial, accordion-lite) ---- */
+  .module-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 780px;
+    margin-inline: auto;
+  }
+  .module-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-2);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .module-row:first-child {
+    border-top: 1px solid var(--border-hairline);
+  }
+  .module-row__num {
+    flex-shrink: 0;
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--emerald-400);
+    padding-top: 2px;
+    min-width: 28px;
+  }
+  .module-row__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .module-row__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+  .module-row__link {
+    flex-shrink: 0;
+    margin-left: auto;
+    align-self: center;
+    color: var(--emerald-400);
+    font-size: 18px;
+  }
+
+  /* ---- Metrics strip (illustrative benchmarks, clearly labeled) ---- */
+  .metrics-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  @media (min-width: 640px) {
+    .metrics-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 980px) {
+    .metrics-strip {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  .metric-stat-card {
+    padding: var(--space-5);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+  }
+  .metric-stat-card__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm, 8px);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--emerald-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+  }
+  .metric-stat-card__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  .metric-stat-card__value {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+  .metric-stat-card__label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+  .metric-stat-card__desc {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+  .metrics-disclaimer {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary, #8a8f8c);
+    text-align: center;
+    font-style: italic;
+    margin-top: var(--space-5);
+    max-width: 620px;
+    margin-inline: auto;
+  }
+
+  /* ---- Process timeline (5-step, horizontal on desktop) ---- */
+  .process-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    position: relative;
+  }
+  @media (min-width: 900px) {
+    .process-timeline {
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-4);
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-emerald) 15%, var(--border-emerald) 85%, transparent);
+      z-index: 0;
+    }
+  }
+  .process-timeline__item {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .process-timeline__num {
+    width: 48px;
+    height: 48px;
+    margin-inline: auto;
+    margin-bottom: var(--space-4);
+    border-radius: 50%;
+    background: var(--bg-surface, #0f1310);
+    border: 1px solid var(--border-emerald);
+    color: var(--emerald-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .process-timeline__num svg {
+    width: 20px;
+    height: 20px;
+  }
+  .process-timeline__step {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--emerald-400);
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-2);
+  }
+  .process-timeline__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+  }
+  .process-timeline__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    max-width: 220px;
+    margin-inline: auto;
+  }
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .process-step {
+    display: flex;
+    gap: var(--space-4);
+  }
+  .process-step__num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-emerald);
+    color: var(--emerald-400);
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .process-step__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+  .process-step__body {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* Floating WhatsApp + Book-a-Call FABs use the shared
+     .fab-whatsapp / .fab-book-call styling from components.css.
+     Visibility is controlled by JS below (shows once the footer
+     scrolls into view), not by main.js's default 480px scroll rule. */
+
+  /* ============================================
+     FIX: ITALIC GRADIENT-TEXT CLIPPING
+     Every <em> inside a heading on this page uses a
+     background-clip: text gradient for the emerald
+     color. Because the text is also italic (slanted),
+     some letters' right edges fall outside the
+     element's own box — and since there's no gradient
+     painted past that edge, those slivers render as
+     invisible/"cut off". This widens the painted
+     gradient area and gives a little breathing room
+     on the right so italic characters are fully
+     covered. Applies globally to every gradient-text
+     heading on this page (section headers, hero,
+     pricing panel, page header) rather than needing a
+     one-off fix per heading.
+     ============================================ */
+  .services-hero__title em,
+  .page-header__title em,
+  .section-header__title em,
+  .pricing-panel__title em,
+  .why-panel__title em,
+  .trust-block__title em,
+  .cta-panel__title em {
+    background-size: 120% 100%;
+    padding-right: 0.12em;
+    display: inline-block;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://riznefy.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://riznefy.com/services.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "Service",
+      "position": 1,
+      "name": "Meta & Google Ads",
+      "description": "Andromeda-era Meta campaign architecture and Google Performance Max management, built on broad targeting and creative-as-signal principles.",
+      "provider": { "@type": "Organization", "name": "Riznefy" },
+      "url": "https://riznefy.com/services.html#paid-media"
+    },
+    {
+      "@type": "Service",
+      "position": 2,
+      "name": "TikTok Advertising",
+      "description": "Creative-led TikTok campaigns built to feel like content rather than ads, using in-feed, Spark Ads, and TikTok Shop formats.",
+      "provider": { "@type": "Organization", "name": "Riznefy" },
+      "url": "https://riznefy.com/services.html#tiktok"
+    },
+    {
+      "@type": "Service",
+      "position": 3,
+      "name": "Conversion Tracking",
+      "description": "Pixel, CAPI, and GA4 setup engineered for accurate attribution, so every downstream ad decision is built on reliable data.",
+      "provider": { "@type": "Organization", "name": "Riznefy" },
+      "url": "https://riznefy.com/services.html#tracking"
+    },
+    {
+      "@type": "Service",
+      "position": 4,
+      "name": "Creative Strategy",
+      "description": "Hook and angle development treated as the primary targeting lever in the Andromeda era, not a downstream production task.",
+      "provider": { "@type": "Organization", "name": "Riznefy" },
+      "url": "https://riznefy.com/services.html#creative"
+    },
+    {
+      "@type": "Service",
+      "position": 5,
+      "name": "Analytics & Reporting",
+      "description": "Revenue-linked reporting and interpretation — ROAS, MER, CPA, and blended CAC explained in plain language, not just dashboards.",
+      "provider": { "@type": "Organization", "name": "Riznefy" },
+      "url": "https://riznefy.com/services.html#analytics"
+    },
+    {
+      "@type": "Service",
+      "position": 6,
+      "name": "Marketing Automation",
+      "description": "Workflow and reporting automation across CRM, WhatsApp, and email so growth work compounds without proportional manual effort.",
+      "provider": { "@type": "Organization", "name": "Riznefy" },
+      "url": "https://riznefy.com/services.html#automation"
+    },
+    {
+      "@type": "Service",
+      "position": 7,
+      "name": "Conversion Rate Optimization",
+      "description": "Landing page and funnel optimization so paid traffic converts at the rate the media budget deserves.",
+      "provider": { "@type": "Organization", "name": "Riznefy" },
+      "url": "https://riznefy.com/services.html#cro"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav" aria-label="Primary navigation">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" fetchpriority="high"></span>
+    <span>Riznefy</span>
+  </a>
+
+  <div class="nav__links">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="services.html" class="nav__link is-active">Services</a>
+    <a href="blueprint.html" class="nav__link">Blueprint</a>
+    <a href="insights.html" class="nav__link">Resources</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="contact.html" class="btn btn--primary">
+      Book a Call <span class="btn__arrow">↗</span>
+    </a>
+  </div>
+
+  <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+    <span class="nav__toggle-icon"><span></span><span></span><span></span></span>
+  </button>
+</nav>
+
+<!-- ============================================
+     MOBILE FULL-SCREEN MENU
+     ============================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__header">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" loading="lazy"></span>
+      <span>Riznefy</span>
+    </a>
+    <button class="nav__toggle mobile-menu__close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 5l14 14M19 5L5 19" stroke="var(--emerald-400)" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="mobile-menu__list">
+    <li><a href="index.html" class="mobile-menu__link">Home <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="services.html" class="mobile-menu__link">Services <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="blueprint.html" class="mobile-menu__link">Blueprint <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="insights.html" class="mobile-menu__link">Resources <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="about.html" class="mobile-menu__link">About <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="contact.html" class="mobile-menu__link">Contact <span class="mobile-menu__link-icon">↗</span></a></li>
+  </ul>
+
+  <a href="contact.html" class="btn btn--primary" style="width: 100%; margin-bottom: var(--space-4);">
+    Book a Strategy Call <span class="btn__arrow">↗</span>
+  </a>
+  <a href="blueprint.html" class="btn btn--ghost" style="width: 100%;">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Explore the Blueprint
+  </a>
+</div>
+
+<!-- ============================================
+     PREMIUM HERO — SPLIT LAYOUT + RADIAL DIAGRAM
+     ============================================ -->
+<header class="services-hero">
+  <div class="container services-hero__grid">
+
+    <!-- LEFT: Copy -->
+    <div>
+      <div class="hero__badge-wrap" style="margin-bottom: var(--space-5);">
+        <span class="badge"><span class="badge__dot"></span> Our Services</span>
+      </div>
+      <h1 class="services-hero__title">One operating system <em>for profitable growth.</em></h1>
+      <p class="services-hero__lead">We don't offer seven isolated services. We run seven disciplines as one connected system — engineered to grow revenue and protect margin, not just fill a content calendar.</p>
+
+      <div class="trust-badge-row">
+        <div class="trust-badge-card">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5.5 4 3L21 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="trust-badge-card__title">Data-Driven</div>
+            <div class="trust-badge-card__desc">Every decision backed by tracked, verifiable data.</div>
+          </div>
+        </div>
+        <div class="trust-badge-card">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div>
+            <div class="trust-badge-card__title">Full-Funnel</div>
+            <div class="trust-badge-card__desc">From first impression to repeat purchase.</div>
+          </div>
+        </div>
+        <div class="trust-badge-card">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3.5v5c0 5-3 8.5-7 10.5-4-2-7-5.5-7-10.5v-5L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="trust-badge-card__title">Profit-Focused</div>
+            <div class="trust-badge-card__desc">Growth that improves margin, not just top-line.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-hero__actions">
+        <a href="contact.html" class="btn btn--primary">
+          Request a Growth Audit <span class="btn__arrow">↗</span>
+        </a>
+        <a href="#how-we-work" class="btn btn--ghost">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> See Our Process
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Radial diagram (static SVG icons, 7 nodes around core) -->
+    <div class="reveal reveal-delay-1" aria-hidden="true">
+      <div class="radial-diagram">
+        <div class="radial-diagram__ring"></div>
+        <div class="radial-diagram__ring radial-diagram__ring--inner"></div>
+        <div class="radial-diagram__core">
+          <img src="assets/logo.svg" alt="" width="64" height="64">
+        </div>
+
+        <div class="radial-node radial-node--1">
+          <span class="radial-node__dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="13" r="7.5" stroke="currentColor" stroke-width="1.6"/><circle cx="11" cy="13" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div class="radial-node__label">Acquisition</div>
+          <div class="radial-node__sub">Paid Media</div>
+        </div>
+        <div class="radial-node radial-node--2">
+          <span class="radial-node__dot"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7a2 2 0 012-2h9l5 4v9a2 2 0 01-2 2H6a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <div class="radial-node__label">Creative</div>
+          <div class="radial-node__sub">Content &amp; Design</div>
+        </div>
+        <div class="radial-node radial-node--3">
+          <span class="radial-node__dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div class="radial-node__label">Tracking</div>
+          <div class="radial-node__sub">Data &amp; Attribution</div>
+        </div>
+        <div class="radial-node radial-node--4">
+          <span class="radial-node__dot"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="radial-node__label">Analytics</div>
+          <div class="radial-node__sub">Reporting &amp; Insights</div>
+        </div>
+        <div class="radial-node radial-node--5">
+          <span class="radial-node__dot"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <div class="radial-node__label">Automation</div>
+          <div class="radial-node__sub">Systems &amp; Workflows</div>
+        </div>
+        <div class="radial-node radial-node--6">
+          <span class="radial-node__dot"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5.5 4 3L21 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 5h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="radial-node__label">CRO</div>
+          <div class="radial-node__sub">Conversion Optimization</div>
+        </div>
+        <div class="radial-node radial-node--7">
+          <span class="radial-node__dot"><svg viewBox="0 0 24 24" fill="none"><path d="M17 20c0-3-2-5-5-5s-5 2-5 5M12 12a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="radial-node__label">Retention</div>
+          <div class="radial-node__sub">Lifecycle &amp; Growth</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============================================
+     SEVEN MODULES — QUICK PREVIEW LIST
+     ============================================ -->
+<section class="section" style="padding-top: var(--space-6);">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="eyebrow eyebrow--center"><span class="eyebrow__line"></span> The Seven Growth Modules <span class="eyebrow__line"></span></div>
+      <h2 class="section-header__title">Seven disciplines. <em>One system.</em></h2>
+      <p class="section-header__lead">Each module below is powerful alone. Run together, they compound.</p>
+    </div>
+
+    <div class="module-list reveal">
+      <a href="#paid-media" class="module-row">
+        <span class="module-row__num">01</span>
+        <div>
+          <div class="module-row__title">Acquisition — Meta, Google &amp; TikTok Ads</div>
+          <div class="module-row__desc">Andromeda-era campaigns built for scale and profitability, not just impressions.</div>
+        </div>
+        <span class="module-row__link">→</span>
+      </a>
+      <a href="#creative" class="module-row">
+        <span class="module-row__num">02</span>
+        <div>
+          <div class="module-row__title">Creative &amp; Motion Graphics</div>
+          <div class="module-row__desc">Scroll-stopping creative built as the targeting signal, not an afterthought.</div>
+        </div>
+        <span class="module-row__link">→</span>
+      </a>
+      <a href="#tracking" class="module-row">
+        <span class="module-row__num">03</span>
+        <div>
+          <div class="module-row__title">Conversion Tracking</div>
+          <div class="module-row__desc">Server-side tracking that captures the truth, not platform guesses.</div>
+        </div>
+        <span class="module-row__link">→</span>
+      </a>
+      <a href="#analytics" class="module-row">
+        <span class="module-row__num">04</span>
+        <div>
+          <div class="module-row__title">Analytics &amp; Reporting</div>
+          <div class="module-row__desc">Clear insight that drives the next decision, not vanity charts.</div>
+        </div>
+        <span class="module-row__link">→</span>
+      </a>
+      <a href="#automation" class="module-row">
+        <span class="module-row__num">05</span>
+        <div>
+          <div class="module-row__title">Marketing Automation</div>
+          <div class="module-row__desc">Systems that nurture leads, close sales, and save your team hours every week.</div>
+        </div>
+        <span class="module-row__link">→</span>
+      </a>
+      <a href="#cro" class="module-row">
+        <span class="module-row__num">06</span>
+        <div>
+          <div class="module-row__title">CRO &amp; Website Management</div>
+          <div class="module-row__desc">Better funnels, stronger pages, higher conversion from the traffic you already pay for.</div>
+        </div>
+        <span class="module-row__link">→</span>
+      </a>
+      <a href="#tiktok" class="module-row">
+        <span class="module-row__num">07</span>
+        <div>
+          <div class="module-row__title">TikTok — Discovery &amp; Retention</div>
+          <div class="module-row__desc">Creative-led discovery that turns new audiences into repeat buyers.</div>
+        </div>
+        <span class="module-row__link">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     HOW WE WORK — 5-STEP PROCESS
+     ============================================ -->
+<section class="section" id="how-we-work">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="eyebrow eyebrow--center"><span class="eyebrow__line"></span> How We Work <span class="eyebrow__line"></span></div>
+      <h2 class="section-header__title">A proven system. <em>Built for results.</em></h2>
+    </div>
+
+    <div class="process-timeline reveal">
+      <div class="process-timeline__item">
+        <span class="process-timeline__num"><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <div class="process-timeline__step">01</div>
+        <div class="process-timeline__title">Audit &amp; Clarity</div>
+        <div class="process-timeline__desc">We audit your accounts, tracking, and numbers to find where growth is actually leaking.</div>
+      </div>
+      <div class="process-timeline__item">
+        <span class="process-timeline__num"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="4" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="13" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.8"/></svg></span>
+        <div class="process-timeline__step">02</div>
+        <div class="process-timeline__title">Build the System</div>
+        <div class="process-timeline__desc">We design the growth infrastructure — from campaign structure to tracking to reporting.</div>
+      </div>
+      <div class="process-timeline__item">
+        <span class="process-timeline__num"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2 6h6l-5 4 2 7-5-4-5 4 2-7-5-4h6l2-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+        <div class="process-timeline__step">03</div>
+        <div class="process-timeline__title">Launch &amp; Learn</div>
+        <div class="process-timeline__desc">We launch in a controlled way, testing fast to find what actually drives results.</div>
+      </div>
+      <div class="process-timeline__item">
+        <span class="process-timeline__num"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="process-timeline__step">04</div>
+        <div class="process-timeline__title">Scale with Control</div>
+        <div class="process-timeline__desc">We scale spend only once signal is stable — structure over chaos, math over guesswork.</div>
+      </div>
+      <div class="process-timeline__item">
+        <span class="process-timeline__num"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3M16 4v4h-4M8 20v-4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="process-timeline__step">05</div>
+        <div class="process-timeline__title">Optimize &amp; Compound</div>
+        <div class="process-timeline__desc">We keep refining creative, funnels, and retention so growth compounds month after month.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     METRICS THAT MATTER — ILLUSTRATIVE BENCHMARKS
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="eyebrow eyebrow--center"><span class="eyebrow__line"></span> The Outcomes We Focus On <span class="eyebrow__line"></span></div>
+      <h2 class="section-header__title">Metrics that <em>matter.</em></h2>
+    </div>
+
+    <div class="metrics-strip reveal">
+      <div class="metric-stat-card">
+        <span class="metric-stat-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5s-5 1.6-5 3.5 2.2 3 5 3.5 5 1.6 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        <div class="metric-stat-card__value">2X–6X</div>
+        <div class="metric-stat-card__label">ROAS Improvement</div>
+        <div class="metric-stat-card__desc">Typical range we target for e-commerce accounts, category and margin dependent.</div>
+      </div>
+      <div class="metric-stat-card">
+        <span class="metric-stat-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 15l3.5-4 3 2.5L18 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="metric-stat-card__value">30–150%</div>
+        <div class="metric-stat-card__label">Revenue Growth</div>
+        <div class="metric-stat-card__desc">Illustrative range within the first 90–180 days, depending on starting baseline.</div>
+      </div>
+      <div class="metric-stat-card">
+        <span class="metric-stat-card__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        <div class="metric-stat-card__value">20–40%</div>
+        <div class="metric-stat-card__label">Lower CPA</div>
+        <div class="metric-stat-card__desc">Through better creative-as-targeting and cleaner conversion tracking.</div>
+      </div>
+      <div class="metric-stat-card">
+        <span class="metric-stat-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h2l2.5 11h9L19 9H6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.3" fill="currentColor"/><circle cx="16.5" cy="20" r="1.3" fill="currentColor"/></svg></span>
+        <div class="metric-stat-card__value">15–30%</div>
+        <div class="metric-stat-card__label">Higher Conversion Rate</div>
+        <div class="metric-stat-card__desc">With CRO and funnel optimization layered onto existing traffic.</div>
+      </div>
+      <div class="metric-stat-card">
+        <span class="metric-stat-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4v5h5M20 20v-5h-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.6 15A8 8 0 0019.4 9M19.4 9a8 8 0 00-14.8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        <div class="metric-stat-card__value">2X–3X</div>
+        <div class="metric-stat-card__label">Repeat Purchase Rate</div>
+        <div class="metric-stat-card__desc">Through retention flows and automation systems layered on top of acquisition.</div>
+      </div>
+    </div>
+
+    <p class="metrics-disclaimer">Illustrative benchmarks based on patterns we typically target across client work — not a guarantee of results for any specific business. Actual outcomes depend on category, starting point, budget, and market.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     DETAILED SERVICE BREAKDOWN — QUICK JUMP
+     ============================================ -->
+<section class="section" style="padding-bottom: var(--space-5);">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="eyebrow eyebrow--center"><span class="eyebrow__line"></span> Go Deeper <span class="eyebrow__line"></span></div>
+      <h2 class="section-header__title">Every module, <em>in full detail.</em></h2>
+      <p class="section-header__lead">Jump to any discipline below for exactly what's included, how we run it, and what a realistic benchmark looks like.</p>
+    </div>
+
+    <nav class="service-nav reveal" aria-label="Jump to service">
+      <a href="#paid-media" class="service-nav__pill">Meta &amp; Google Ads</a>
+      <a href="#tiktok" class="service-nav__pill">TikTok</a>
+      <a href="#tracking" class="service-nav__pill">Tracking</a>
+      <a href="#creative" class="service-nav__pill">Creative</a>
+      <a href="#analytics" class="service-nav__pill">Analytics</a>
+      <a href="#automation" class="service-nav__pill">Automation</a>
+      <a href="#cro" class="service-nav__pill">CRO</a>
+    </nav>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICE 1 — META & GOOGLE ADS (PAID MEDIA)
+     ============================================ -->
+<section class="section service-block" id="paid-media" style="padding-top: var(--space-6);">
+  <div class="container">
+    <div class="service-block__head reveal">
+      <span class="service-block__icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="13" r="7.5" stroke="currentColor" stroke-width="1.6"/><circle cx="11" cy="13" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5L21 3M21 3h-4M21 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <div class="service-block__eyebrow">Paid Media — Meta &amp; Google</div>
+        <h2 class="service-block__title">Andromeda-era Meta architecture, Performance Max mastery.</h2>
+        <p class="service-block__lead">The old playbook — stack ten narrow interests, run twenty ad sets, pray one wins — died with Meta's Andromeda update. In 2026, your creative <em style="font-style:italic;color:var(--text-primary);">is</em> the targeting. We build campaigns around that reality instead of fighting it.</p>
+      </div>
+    </div>
+
+    <div class="service-block__grid">
+      <div class="service-block__body reveal">
+        <p>We run broad, Advantage+ audiences by default — because in the post-Andromeda world, Meta's AI reads your creative and finds the buyer, not the other way around. That means our job shifts from "audience research" to <strong style="color:var(--text-primary);">feeding the algorithm distinct creative signals</strong>: a different hook, a different angle, a different emotional entry point for every ad, so Meta can discover every pocket of demand your product actually has.</p>
+        <p>On the Google side, Performance Max now carries most of the weight for e-commerce, with Search protecting brand terms and capturing high-intent buyers Google's AI can't reach through automation alone. We don't treat PMax as a black box — asset groups are segmented by margin and intent, search themes are seeded with real buying-language, and Standard Shopping runs alongside PMax so we keep a manual lever on your best-margin products.</p>
+        <p>Budget isn't split by guesswork. We size ASC, manual CBO, and retargeting allocations off your actual margin and POAS target — the same math a CFO would insist on, applied to ad spend.</p>
+      </div>
+
+      <div class="included-list reveal reveal-delay-1">
+        <span class="included-list__title">What's Included</span>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Andromeda-aligned campaign architecture</strong> — ASC, manual CBO for creative testing, and ABO retargeting sized to your funnel.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Creative-as-targeting testing system</strong> — diverse hooks and angles built to surface every buyer segment your product has.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>PMax + Search + Shopping</strong> — asset groups segmented by margin, seeded search themes, brand-term protection.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Profit-first budget allocation</strong> — spend sized to your margin and target ROAS, not a generic percentage rule.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Weekly scaling decisions</strong> — budget moves only when ROAS is stable 3+ consecutive days, never on a hunch.</span>
+        </div>
+        <p class="benchmark-note">Illustrative benchmark only — not a guarantee: e-commerce accounts we structure this way typically target a 3–4x ROAS as "good" and 4x+ as scale-ready, depending on category and margin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICE 2 — TIKTOK ADVERTISING
+     ============================================ -->
+<section class="section service-block" id="tiktok">
+  <div class="container">
+    <div class="service-block__head reveal">
+      <span class="service-block__icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M16.5 8.5c-1.6 0-2.9-1-3.4-2.4V16a4.4 4.4 0 11-3.8-4.4v2.6a1.8 1.8 0 101.6 1.8V2h2.6c.2 1.8 1.5 3.2 3.2 3.4v3.1h-.2z" fill="currentColor"/></svg>
+      </span>
+      <div>
+        <div class="service-block__eyebrow">TikTok Advertising</div>
+        <h2 class="service-block__title">Creative-led discovery, built to feel like content — not ads.</h2>
+        <p class="service-block__lead">TikTok isn't optional anymore for brands selling to an 18–35 audience. It's a content platform first, and the ads that win understand that difference completely.</p>
+      </div>
+    </div>
+
+    <div class="service-block__grid">
+      <div class="service-block__body reveal">
+        <p>Our golden rule: don't make ads, make TikToks. UGC-style, person-to-camera creative consistently outperforms polished brand ads on this platform, because it doesn't ask to be trusted — it already looks like something a friend would send. We build the hook to land in the first two seconds, structure the body around a real problem-to-resolution arc, and keep pacing fast enough that the platform's own algorithm rewards it with organic reach on top of the paid spend.</p>
+        <p>Structurally, we run In-Feed prospecting and retargeting as separate campaigns, with TikTok Shop layered in for e-commerce brands where native checkout removes the last bit of friction between "interested" and "bought." Spark Ads let us boost organic posts that are already proving themselves — carrying real comments and likes into the paid placement, which reads as social proof no static ad can fake.</p>
+        <p>Where it fits your funnel, we typically position TikTok as the discovery and top-of-funnel engine, with Meta handling nurture, retargeting, and close — two channels doing what each does best, rather than competing for the same job.</p>
+      </div>
+
+      <div class="included-list reveal reveal-delay-1">
+        <span class="included-list__title">What's Included</span>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>In-Feed prospecting + retargeting</strong> — structured as separate campaigns with dedicated creative for each stage.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>UGC-style creative production</strong> — hook-first scripting, native pacing, no corporate polish that reads as an ad.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>TikTok Shop setup</strong> — native checkout integration for e-commerce brands, where applicable.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Spark Ads deployment</strong> — boosting organic winners so real engagement carries into paid reach.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Cross-platform strategy</strong> — TikTok for discovery, Meta for nurture and close, budgeted to your funnel.</span>
+        </div>
+        <p class="benchmark-note">Illustrative benchmark only: a 40%+ hook rate (2-second views ÷ impressions) is generally considered strong for In-Feed ads in 2026 — actual results vary by niche and creative quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICE 3 — CONVERSION TRACKING
+     ============================================ -->
+<section class="section service-block" id="tracking">
+  <div class="container">
+    <div class="service-block__head reveal">
+      <span class="service-block__icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 12.2l1.8 1.8 3.5-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <div class="service-block__eyebrow">Conversion Tracking</div>
+        <h2 class="service-block__title">If the data is wrong, every decision built on it is wrong too.</h2>
+        <p class="service-block__lead">Since iOS 14, browser-based tracking alone has quietly been losing 20–40% of real conversion events. Most accounts are still optimizing off an incomplete picture without knowing it.</p>
+      </div>
+    </div>
+
+    <div class="service-block__grid">
+      <div class="service-block__body reveal">
+        <p>We treat tracking as infrastructure, not an afterthought bolted on after launch. Every account gets the Meta Pixel paired with Conversions API (server-side), so purchase and add-to-cart events reach Meta even when a browser or an iPhone's privacy settings would otherwise block them. The same principle applies on Google: GA4 as the single source of truth, Enhanced Conversions matching first-party customer data, and server-side GTM where the account justifies it.</p>
+        <p>We don't stop at "is the pixel firing." We check Event Match Quality scores, verify AEM event prioritization, and build the UTM structure so every dollar of spend can be traced to actual revenue — not attributed by guesswork or platform self-reporting that conveniently favors the platform.</p>
+        <p>This is the unglamorous work that makes every other service on this page actually measurable. Ads without clean tracking are just an expensive experiment nobody can read.</p>
+      </div>
+
+      <div class="included-list reveal reveal-delay-1">
+        <span class="included-list__title">What's Included</span>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Meta Pixel + CAPI setup</strong> — server-side event delivery to recover iOS-blocked conversion data.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>GA4 configuration</strong> — full e-commerce event tracking (view, add-to-cart, checkout, purchase).</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Google Enhanced Conversions</strong> — first-party data matching for stronger Smart Bidding signal.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Server-side GTM</strong> (where relevant) — reduces data loss from ad blockers and browser restrictions.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>UTM governance</strong> — consistent naming across every campaign so reporting is trustworthy, not guesswork.</span>
+        </div>
+        <p class="benchmark-note">Illustrative benchmark only: an Event Match Quality score of 7+ in Meta Events Manager is generally considered a strong tracking foundation — actual scores depend on the data available per account.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICE 4 — AD CREATIVE & MOTION GRAPHICS
+     ============================================ -->
+<section class="section service-block" id="creative">
+  <div class="container">
+    <div class="service-block__head reveal">
+      <span class="service-block__icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 7a2 2 0 012-2h9l5 4v9a2 2 0 01-2 2H6a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 5v4h5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10.5 10.5l4 2.5-4 2.5v-5z" fill="currentColor"/></svg>
+      </span>
+      <div>
+        <div class="service-block__eyebrow">Ad Creative &amp; Motion Graphics</div>
+        <h2 class="service-block__title">In the Andromeda era, creative isn't decoration — it's the targeting.</h2>
+        <p class="service-block__lead">Two ads for the same product, aimed at the same account, will reach completely different buyers depending on the angle. That's not a theory — it's how Meta's AI actually reads and delivers creative in 2026.</p>
+      </div>
+    </div>
+
+    <div class="service-block__grid">
+      <div class="service-block__body reveal">
+        <p>Every piece of creative we produce is built against a testing matrix — hook type, format, emotional angle, and length are treated as independent variables, because a single "great ad" tells the algorithm far less than five deliberately different ones. Some assets are UGC-style, filmed to feel unscripted; others are CGI product renders built for the polish a premium positioning demands; others are motion graphics that turn a static offer into something that stops a scroll.</p>
+        <p>We don't chase production value for its own sake. A studio-lit CGI hero shot and a shaky phone-filmed testimonial can both be the right answer — the question is always which one earns attention from the specific buyer that creative is meant to find.</p>
+        <p>Every brief is written with the platform's actual specs and safe zones in mind — vertical-first for Reels and TikTok, sound-on by default, hook resolved before the three-second mark — so nothing gets built and then reshaped after the fact.</p>
+      </div>
+
+      <div class="included-list reveal reveal-delay-1">
+        <span class="included-list__title">What's Included</span>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Creative testing matrix</strong> — hook, format, emotional angle, and length varied deliberately, not by accident.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>UGC-style ad production</strong> — authentic, person-to-camera creative built for feed-native performance.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>CGI product renders</strong> — studio-grade visuals for premium positioning, no physical shoot required.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Motion graphics &amp; scroll-stopping edits</strong> — built to platform specs, safe zones, and sound-on defaults.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Hook &amp; script writing</strong> — copy engineered to resolve the "why watch" moment inside the first three seconds.</span>
+        </div>
+        <p class="benchmark-note">Illustrative benchmark only: a 30%+ hook rate (3-second video views ÷ impressions) is generally treated as a strong signal on Meta — real numbers depend on category and audience temperature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICE 5 — ANALYTICS & REPORTING
+     ============================================ -->
+<section class="section service-block" id="analytics">
+  <div class="container">
+    <div class="service-block__head reveal">
+      <span class="service-block__icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <div class="service-block__eyebrow">Analytics &amp; Reporting</div>
+        <h2 class="service-block__title">Data without interpretation is just noise with a nice dashboard.</h2>
+        <p class="service-block__lead">Vanity metrics feed egos. Reach, impressions, and likes look good in a screenshot and mean almost nothing for the business behind them. We report on what actually moves profit.</p>
+      </div>
+    </div>
+
+    <div class="service-block__grid">
+      <div class="service-block__body reveal">
+        <p>Every account gets a defined North Star metric before reporting even begins — ROAS for e-commerce, cost-per-sale for service businesses, whatever number actually defines success for that specific brand. Everything else in the report exists to explain movement in that one number, not to pad the page with charts that look busy.</p>
+        <p>We report blended numbers, not just platform-reported ones. Meta and Google will each happily claim credit for the same sale through attribution overlap — the number that matters to your bank account is total revenue divided by total marketing spend, and that's the number we lead with, even when it's less flattering than a platform dashboard.</p>
+        <p>Reports follow a simple structure every time: what happened, why it happened, and what we're doing next — connected to a Looker Studio dashboard so you're never waiting on us to check a number.</p>
+      </div>
+
+      <div class="included-list reveal reveal-delay-1">
+        <span class="included-list__title">What's Included</span>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Defined North Star metric</strong> — one number that actually defines success for your business, agreed up front.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Blended ROAS reporting</strong> — the honest number, not just what a single platform claims.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Live Looker Studio dashboard</strong> — Meta, Google, and GA4 data connected in one place, always current.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>What-Why-Next reporting cadence</strong> — every report ends in a decision, not just a data dump.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>LTV &amp; CAC modeling</strong> — so ad spend decisions are grounded in unit economics, not just this week's ROAS.</span>
+        </div>
+        <p class="benchmark-note">Illustrative benchmark only: an LTV-to-CAC ratio of 3:1 or higher is generally considered healthy for sustainable growth — targets vary by business model and margin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICE 6 — MARKETING AUTOMATION
+     ============================================ -->
+<section class="section service-block" id="automation">
+  <div class="container">
+    <div class="service-block__head reveal">
+      <span class="service-block__icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      <div>
+        <div class="service-block__eyebrow">Marketing Automation</div>
+        <h2 class="service-block__title">Leverage, not laziness — do the work once, let it run forever.</h2>
+        <p class="service-block__lead">Most follow-up dies after the second touch. Most businesses respond to leads manually, forget to send that weekly report on time, and let hot leads go cold in a DM inbox nobody's watching.</p>
+      </div>
+    </div>
+
+    <div class="service-block__grid">
+      <div class="service-block__body reveal">
+        <p>We build the systems that make consistency effortless. Instagram DMs and comments get qualified automatically the moment they arrive — before a human ever needs to type a reply. Facebook Lead Ads flow straight into a CRM pipeline with an instant WhatsApp follow-up, because a lead answered within two minutes converts at a completely different rate than one answered two hours later.</p>
+        <p>Reporting, testimonial collection, and payment reminders all run the same way — quietly, on schedule, without anyone needing to remember to do them. This isn't about replacing judgment with automation everywhere; it's about removing the repetitive 80% so the remaining 20% — actual strategy, actual creative decisions — gets a human's full attention instead of being squeezed in between admin tasks.</p>
+        <p>Built on GoHighLevel, Make, and WhatsApp Business API — the same stack running Riznefy's own operations, so we're not experimenting on your account with something we haven't already stress-tested.</p>
+      </div>
+
+      <div class="included-list reveal reveal-delay-1">
+        <span class="included-list__title">What's Included</span>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Instant lead qualification</strong> — Instagram/WhatsApp auto-responses that qualify budget and intent before you ever type a reply.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Lead Ads → CRM pipeline</strong> — every submission enters GoHighLevel automatically, tagged and ready to follow up.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Automated weekly reporting</strong> — performance summaries sent on schedule, no manual compilation.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Nurture &amp; win-back sequences</strong> — cold leads and lapsed customers re-engaged without manual follow-up.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Payment &amp; onboarding automation</strong> — invoice reminders and new-client onboarding that don't rely on memory.</span>
+        </div>
+        <p class="benchmark-note">Illustrative note: consistent 5+ touch follow-up sequences generally convert meaningfully better than 1–2 manual touches — exact lift depends on offer and audience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICE 7 — CRO & WEBSITE MANAGEMENT
+     ============================================ -->
+<section class="section service-block" id="cro">
+  <div class="container">
+    <div class="service-block__head reveal">
+      <span class="service-block__icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5.5 4 3L21 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 5h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <div class="service-block__eyebrow">CRO &amp; Website Management</div>
+        <h2 class="service-block__title">Your website is a 24/7 salesperson. Most of them are underperforming.</h2>
+        <p class="service-block__lead">You're already paying for the traffic. The only question left is whether the page it lands on is closing the sale or quietly losing it.</p>
+      </div>
+    </div>
+
+    <div class="service-block__grid">
+      <div class="service-block__body reveal">
+        <p>We start every engagement with a structured audit across the six things that actually decide whether a visitor converts: page speed, the above-the-fold message, the full conversion funnel, trust signals, copy clarity, and the mobile experience — since the majority of traffic in this market is mobile-first, and a desktop-optimized page with a clunky mobile checkout is leaving money on the table by default.</p>
+        <p>From there, we prioritize by impact versus effort — trust badges and a faster load time this week, a full product-page redesign this month — rather than a vague "we'll improve the site" retainer with no visible roadmap. Every change ships with a before/after on the metric it was meant to move, so improvement is something you can see in the data, not just take our word for.</p>
+        <p>This runs on Shopify, WordPress, or a custom build depending on what the brand already has — we work with what exists rather than forcing a platform migration that isn't justified by the CRO upside.</p>
+      </div>
+
+      <div class="included-list reveal reveal-delay-1">
+        <span class="included-list__title">What's Included</span>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>6-point conversion audit</strong> — speed, above-the-fold, funnel mapping, trust signals, copy, and mobile UX.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Impact-vs-effort roadmap</strong> — quick wins shipped first, bigger rebuilds planned with a clear reason.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Landing page &amp; product page builds</strong> — designed around one goal per page, not five competing CTAs.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Mobile-first optimization</strong> — thumb-friendly CTAs, no horizontal scroll, checkout tested on real devices.</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>Ongoing maintenance &amp; security</strong> — uptime monitoring, backups, and monthly performance checks.</span>
+        </div>
+        <p class="benchmark-note">Illustrative benchmark only: a 2.5–3%+ site-wide conversion rate is generally considered a healthy e-commerce target — actual achievable rates vary by traffic quality and category.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PRICING — UNIFIED, NO FIXED TIER GRID
+     ============================================ -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="pricing-panel glass-card reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        Investment
+        <span class="eyebrow__line"></span>
+      </div>
+      <h2 class="pricing-panel__title">Pricing is built around your business, <em>not a fixed package.</em></h2>
+      <p class="pricing-panel__body">We don't publish a price list, because a fair price for a 6-figure e-commerce brand and a fair price for an early-stage local business aren't the same number — and pretending otherwise means someone always overpays or gets under-served.</p>
+      <p class="pricing-panel__body">Every engagement is scoped and quoted after a short discovery call, based on what's actually needed to hit your goal — not a one-size template.</p>
+
+      <div class="pricing-factors">
+        <div class="pricing-factor">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Current &amp; target monthly ad spend</span>
+        </div>
+        <div class="pricing-factor">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Which services from this page you actually need</span>
+        </div>
+        <div class="pricing-factor">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Current state of your tracking, creative, and website</span>
+        </div>
+        <div class="pricing-factor">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Market — BD, UAE/KSA/Qatar, or US/UK diaspora</span>
+        </div>
+        <div class="pricing-factor">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Speed of scale you're aiming for</span>
+        </div>
+        <div class="pricing-factor">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Length of engagement (monthly retainer vs. project)</span>
+        </div>
+      </div>
+
+      <a href="contact.html" class="btn btn--primary">
+        Get a Custom Quote <span class="btn__arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     MINI FAQ
+     ============================================ -->
+<section class="section" id="services-faq" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="eyebrow eyebrow--center"><span class="eyebrow__line"></span> Common Questions <span class="eyebrow__line"></span></div>
+      <h2 class="section-header__title">Before you <em>reach out.</em></h2>
+    </div>
+
+    <div class="faq-list" style="max-width: 720px; margin-inline: auto;">
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          Do I need all seven services, or can I start with one?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>Most engagements start with 2–3 services — usually paid media plus tracking, since ads without clean tracking are hard to optimize. We'll recommend a starting scope based on your actual bottleneck, not sell you all seven by default.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          I'm already running ads myself — can you just fix tracking or creative?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>Yes. Every service on this page can be engaged individually as a standalone project — you don't need to hand over your whole marketing operation to get help with one piece of it.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          How long before I see results?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>Tracking and campaign structure go live in week one. Meaningful optimization signal typically takes 2–4 weeks of creative testing and data collection before we scale with confidence — we'd rather tell you that honestly than promise an overnight fix.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          Do you work with brands outside Bangladesh?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>Yes — alongside Bangladesh, we actively work with brands in the UAE, KSA, and Qatar, as well as South Asian diaspora businesses in the US and UK.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA
+     ============================================ -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="cta-panel glass-card reveal" style="text-align:center; max-width: 720px; margin-inline: auto;">
+      <h2 class="cta-panel__title" style="margin-bottom: var(--space-4);">Ready to see which services <em>fit your brand?</em></h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-base); margin-bottom: var(--space-6); max-width: 520px; margin-inline: auto;">A short discovery call is the fastest way to find out what's actually holding your growth back — and whether Riznefy is the right fit to fix it.</p>
+      <a href="contact.html" class="btn btn--primary">
+        Book a Strategy Call <span class="btn__arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo-link">
+          <img src="assets/footer-logo.png" alt="Riznefy" class="footer__logo-lockup">
+        </a>
+        <p class="footer__tagline">Performance marketing for ambitious e-commerce and D2C brands.</p>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Agency</span>
+        <a href="services.html" class="footer__link">Services</a>
+        <a href="blueprint.html" class="footer__link">Blueprint</a>
+        <a href="insights.html" class="footer__link">Resources</a>
+        <a href="about.html" class="footer__link">About</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Services</span>
+        <a href="services.html#paid-media" class="footer__link">Meta &amp; Google Ads</a>
+        <a href="services.html#tiktok" class="footer__link">TikTok Advertising</a>
+        <a href="services.html#tracking" class="footer__link">Conversion Tracking</a>
+        <a href="services.html#automation" class="footer__link">Automation</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Legal</span>
+        <a href="privacy.html" class="footer__link">Privacy Policy</a>
+        <a href="terms.html" class="footer__link">Terms of Service</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M14 8.5h-1.5c-.6 0-1 .4-1 1V11h2.4l-.3 2.4h-2.1V21h-2.5v-7.6H7V11h1.9V9.2c0-1.9 1.1-3 2.9-3H14v2.3z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 015 0V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <span class="footer__copyright">Strategy · Systems · Scale — © 2026 Riznefy</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     FLOATING ACTIONS
+     Visibility controlled by JS below — appears
+     once the footer scrolls into view.
+     ============================================ -->
+<a href="https://wa.me/8801712650589" class="fab-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l4.93-1.38C8.42 21.5 10.15 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M8.5 8.5c.2-.4.6-.4.9-.4h.6c.2 0 .5 0 .7.5.3.6.9 2 1 2.1.1.2.1.4 0 .6-.1.2-.2.3-.4.5s-.4.4-.5.6c-.2.2-.3.4-.1.7.2.4.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.6-.2.2.1 1.6.8 1.9 1 .3.1.5.2.5.3.1.4.1.9-.1 1.4-.2.5-1.2 1.1-1.7 1.1-.4 0-.9.1-3-.7-2.6-1-4.2-3.7-4.3-3.9-.1-.2-1-1.3-1-2.5 0-1.2.6-1.8.8-2z" fill="#0A0A0A"/>
+  </svg>
+</a>
+<a href="contact.html" class="fab-book-call">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 3h3.5l1.5 5-2.5 1.5a11 11 0 0 0 5.5 5.5L14 12.5l5 1.5v3.5c0 1.1-.9 2-2 2C9.4 19.5 4.5 14.6 4.5 8c0-1.1.9-2 2-2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>
+  Book a Call
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

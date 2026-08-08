@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riznefy — Profit-First Performance Marketing Agency</title>
+<meta name="description" content="Riznefy builds profitable growth systems for ambitious brands through strategic planning, paid media, analytics, conversion systems, and disciplined execution.">
+<link rel="canonical" href="https://riznefy.com/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:title" content="We don't sell ads. We build profit engines.">
+<meta property="og:description" content="A premium growth partner for brands that want strategy, structure, and scalable revenue.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://riznefy.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://riznefy.com/">
+<meta property="og:site_name" content="Riznefy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="We don't sell ads. We build profit engines.">
+<meta name="twitter:description" content="A premium growth partner for brands that want strategy, structure, and scalable revenue.">
+<meta name="twitter:image" content="https://riznefy.com/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  /* Page-specific styles for this preview only */
+  .hero {
+    padding-top: var(--space-2);
+    text-align: center;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 480px;
+    background: var(--overlay-radial-hero);
+    pointer-events: none;
+    z-index: 0;
+    /* Static glow, no animation: an infinite-loop drift here ran
+       constantly in the background even when idle, which is a steady
+       GPU/battery cost that shows up as general sluggishness on
+       mid-range phones. A still glow reads just as premium. */
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 480px;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black, transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+  .hero__badge-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-5);
+  }
+  .hero__title {
+    margin-bottom: var(--space-5);
+    font-size: clamp(2.25rem, 10vw, 2.75rem);
+    line-height: 1.14;
+    letter-spacing: -0.045em;
+  }
+  .hero__title-line {
+    display: block;
+    /* Compensates for the 0.12em padding-right added to each .hero__word
+       below (needed so italic glyphs like the "d" in "build" aren't
+       clipped by background-clip:text) - shrinks the actual space
+       character by the same amount so the visible gap between words
+       stays at its original width instead of looking doubled. */
+    word-spacing: -0.12em;
+  }
+  .hero__title-line--1 {
+    white-space: nowrap;
+  }
+  /* Word-by-word fade-in-up reveal: each word is wrapped in a span by
+     main.js on load, starting hidden/offset, then fades/rises in with
+     a per-word stagger delay (set inline via --word-delay by JS). */
+  .hero__word {
+    display: inline-block;
+    padding-right: 0.12em;
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(4px);
+    transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium), filter 0.6s var(--ease-premium);
+    transition-delay: var(--word-delay, 0s);
+  }
+  .hero__word.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  /* CSS-only wrap control for the emphasis line: constraining its
+     width forces "We build profit" / "engines." onto two lines on
+     narrow screens using the browser's normal word-wrap (so the space
+     between words is always real, never a hidden <br> that can vanish
+     and leave words stuck together). Widens progressively so the
+     phrase sits on one line once there's room. */
+  .hero__title em {
+    display: block;
+    max-width: 15ch;
+    margin-inline: auto;
+  }
+  @media (min-width: 480px) {
+    .hero__title em {
+      max-width: none;
+    }
+  }
+  .hero__lead {
+    font-size: var(--text-base);
+    max-width: 38ch;
+    margin-inline: auto;
+    margin-bottom: var(--space-7);
+  }
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: center;
+    margin-bottom: var(--space-8);
+  }
+  .trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-6) var(--space-7);
+    padding-bottom: var(--space-8);
+    margin-bottom: var(--space-7);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    opacity: 0.85;
+    transition: opacity var(--duration-fast) ease, color var(--duration-fast) ease;
+  }
+  .trust-item:hover {
+    opacity: 1;
+    color: var(--text-secondary);
+  }
+  .trust-item svg {
+    height: 16px;
+    width: auto;
+    max-width: 22px;
+    color: var(--emerald-400);
+    flex-shrink: 0;
+  }
+  .trust-line {
+    font-family: var(--font-label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    text-align: center;
+    max-width: 620px;
+    margin-inline: auto;
+    line-height: 2;
+    padding-bottom: var(--space-5);
+    margin-bottom: var(--space-5);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .trust-line span {
+    color: var(--emerald-400);
+    margin-inline: var(--space-1);
+  }
+
+  .metric-showcase {
+    max-width: 480px;
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-bottom: var(--space-9);
+  }
+  .metric-showcase__disclaimer {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    text-align: center;
+    margin-top: var(--space-5);
+    line-height: var(--leading-normal);
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Riznefy",
+  "url": "https://riznefy.com/",
+  "logo": "https://riznefy.com/assets/logo.svg",
+  "image": "https://riznefy.com/assets/og-image.jpg",
+  "description": "Riznefy builds profitable growth systems for ambitious D2C and e-commerce brands through strategic planning, paid media, analytics, conversion systems, and disciplined execution.",
+  "email": "riznefy@gmail.com",
+  "areaServed": [
+    { "@type": "Country", "name": "Bangladesh" },
+    { "@type": "Country", "name": "United Arab Emirates" },
+    { "@type": "Country", "name": "Saudi Arabia" },
+    { "@type": "Country", "name": "Qatar" },
+    { "@type": "Country", "name": "United States" },
+    { "@type": "Country", "name": "United Kingdom" }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "riznefy@gmail.com",
+    "url": "https://riznefy.com/contact.html"
+  },
+  "sameAs": []
+}
+</script>
+</head>
+<body>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav" aria-label="Primary navigation">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" fetchpriority="high"></span>
+    <span>Riznefy</span>
+  </a>
+
+  <div class="nav__links">
+    <a href="index.html" class="nav__link is-active">Home</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="blueprint.html" class="nav__link">Blueprint</a>
+    <a href="insights.html" class="nav__link">Resources</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="contact.html" class="btn btn--primary">
+      Book a Call <span class="btn__arrow">↗</span>
+    </a>
+  </div>
+
+  <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+    <span class="nav__toggle-icon"><span></span><span></span><span></span></span>
+  </button>
+</nav>
+
+<!-- ============================================
+     MOBILE FULL-SCREEN MENU
+     ============================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__header">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" loading="lazy"></span>
+      <span>Riznefy</span>
+    </a>
+    <button class="nav__toggle mobile-menu__close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 5l14 14M19 5L5 19" stroke="var(--emerald-400)" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="mobile-menu__list">
+    <li><a href="index.html" class="mobile-menu__link">Home <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="services.html" class="mobile-menu__link">Services <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="blueprint.html" class="mobile-menu__link">Blueprint <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="insights.html" class="mobile-menu__link">Resources <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="about.html" class="mobile-menu__link">About <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="contact.html" class="mobile-menu__link">Contact <span class="mobile-menu__link-icon">↗</span></a></li>
+  </ul>
+
+  <a href="contact.html" class="btn btn--primary" style="width: 100%; margin-bottom: var(--space-4);">
+    Book a Strategy Call <span class="btn__arrow">↗</span>
+  </a>
+  <a href="blueprint.html" class="btn btn--ghost" style="width: 100%;">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Explore the Blueprint
+  </a>
+</div>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<header class="hero">
+  <div class="container hero__content">
+    <div class="hero__badge-wrap reveal">
+      <span class="badge">
+        <span class="badge__dot"></span>
+        Now Accepting New Partnerships
+      </span>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="hero__title-line hero__title-line--1" data-word-reveal>We don't sell ads.</span>
+      <em class="hero__title-line hero__title-line--2" data-word-reveal>We build profit engines.</em>
+    </h1>
+
+    <p class="hero__lead reveal reveal-delay-2">
+      Riznefy helps ambitious brands grow with strategy-first paid media, data-driven planning, and conversion systems designed to increase revenue, improve efficiency, and protect margin.
+    </p>
+
+    <div class="hero__actions reveal reveal-delay-3">
+      <a href="contact.html" class="btn btn--primary">
+        Book a Strategy Call <span class="btn__arrow">↗</span>
+      </a>
+      <a href="blueprint.html" class="btn btn--ghost">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Explore the Blueprint
+      </a>
+    </div>
+
+    <div class="trust-strip reveal reveal-delay-3">
+      <span class="trust-item">
+        <svg viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 2C3.5 2 1 6.2 1 10s2 6.5 4.7 6.5c1.7 0 3-1.1 5-4 .5-.7 1-1.5 1.5-2.3-.3-.5-.6-1-.9-1.5-.5.8-1 1.6-1.5 2.3-1.7 2.4-2.7 3.1-3.7 3.1-1.5 0-2.6-1.7-2.6-4.1s1.1-4.5 2.6-4.5c1 0 1.9.7 3.2 2.5.5.7 1 1.5 1.6 2.5l.9 1.5c1.9 3.1 3 4 4.9 4C19.5 16.5 21 14 21 10s-1.5-6.5-4-6.5c-1.6 0-2.8 1.1-4.4 3.5.3.5.6 1 .9 1.5 1.3-2 2.3-2.7 3.3-2.7 1.5 0 2.7 1.9 2.7 4.2s-1.2 4.1-2.6 4.1c-1 0-1.9-.7-3.5-3.2l-.9-1.5c-.6-1-1.2-1.9-1.7-2.6C9.2 3.1 8 2 6.5 2z" fill="currentColor"/></svg>
+        Meta Partner
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 01-2 3v2.5h3.2c1.9-1.8 3-4.3 3-7.4z" fill="currentColor"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0012 22z" fill="currentColor" opacity="0.7"/><path d="M6.4 13.9a6 6 0 010-3.8V7.5H3.1a10 10 0 000 9l3.3-2.6z" fill="currentColor" opacity="0.5"/><path d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.8-2.8A10 10 0 003.1 7.5l3.3 2.6C7.2 7.7 9.4 5.9 12 5.9z" fill="currentColor" opacity="0.35"/></svg>
+        Google Certified
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 8.5c-1.6 0-2.9-1-3.4-2.4V16a4.4 4.4 0 11-3.8-4.4v2.6a1.8 1.8 0 101.6 1.8V2h2.6c.2 1.8 1.5 3.2 3.2 3.4v3.1h-.2z" fill="currentColor"/></svg>
+        TikTok Ads
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6 5.3c0-.1-.1-.2-.3-.2l-1.5-.1-1.1-1.1c-.1-.1-.3-.1-.4 0l-.6.2c-.1-.3-.3-.6-.5-.9-.6-.6-1.3-.7-1.7-.7-.1 0-.1 0-.2.1-.1-.2-.3-.4-.5-.5-.9-.5-2.2 0-3.1 1.4-.6 1-1.1 2.2-1.2 3.2l-1.6.5c-.5.1-.5.2-.5.6L2.4 19l11.7 2.2 5.9-1.5S16.6 5.4 16.6 5.3zM12 4.9l-1 .3c0-.6-.1-1.4-.4-2.1.9.2 1.3 1.1 1.4 1.8zm-1.7.5l-2.1.6c.2-.8.6-1.5 1-2 .2-.2.5-.5.8-.6.3.5.3 1.3.3 2z" fill="currentColor" opacity="0.85"/><path d="M16.3 5.1l-1.5-.1-1.1-1.1c-.1-.1-.1-.1-.2-.1L14.1 21.2l5.9-1.5s-3.4-14.4-3.4-14.5c0-.1-.1-.1-.3-.1z" fill="currentColor"/></svg>
+        Shopify
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V10l4 3.5V20H4z" fill="currentColor" opacity="0.5"/><path d="M10 20V6l4 3v11h-4z" fill="currentColor" opacity="0.75"/><path d="M16 20V4l4 2.5V20h-4z" fill="currentColor"/></svg>
+        GA4
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================
+     WHAT WE DO
+     ============================================ -->
+<section class="section" id="what-we-do" style="padding-top: var(--space-6); padding-bottom: var(--space-6);">
+  <div class="container">
+    <div class="section-header section-header--center reveal" style="max-width: 620px;">
+      <h2 class="section-header__title">One growth system.<br><em>Every lever working together.</em></h2>
+      <p class="section-header__lead">Growth breaks when strategy, media, creative, tracking, and conversion live in separate silos. Riznefy connects them into one operating model designed to compound over time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SIGNATURE COMPONENT: LIVING METRIC CARD
+     Rebuilt as an explicit "Performance Snapshot" —
+     illustrative benchmarks the agency builds toward,
+     never framed as a real client's historical numbers.
+     ============================================ -->
+<section class="metric-showcase" id="systems">
+  <div class="metric-panel reveal">
+    <div class="metric-panel__header">
+      <div>
+        <span class="metric-panel__label">Illustrative Benchmark</span>
+        <h3 class="metric-panel__title">Performance<br>Snapshot</h3>
+      </div>
+      <div class="metric-panel__pill">
+        <span class="metric-panel__pill-label">Target ROAS</span>
+        <span class="metric-panel__pill-value" data-count-to="4.2" data-count-decimals="1" data-count-suffix="x">0x</span>
+      </div>
+    </div>
+
+    <svg class="metric-panel__chart" viewBox="0 0 400 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrative revenue trend used to show the reporting standard, not a historical client result">
+      <defs>
+        <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#10B981" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path class="chart-fill" d="M0,120 L30,110 L60,100 L90,105 L120,85 L150,90 L180,60 L210,65 L240,45 L270,50 L300,30 L330,35 L400,10 L400,160 L0,160 Z" fill="url(#chartFill)"/>
+      <path class="chart-line" d="M0,120 L30,110 L60,100 L90,105 L120,85 L150,90 L180,60 L210,65 L240,45 L270,50 L300,30 L330,35 L400,10" stroke="#34D399" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <div class="metric-panel__stats">
+      <div class="metric-stat">
+        <span class="metric-stat__label">Proj. CVR</span>
+        <span class="metric-stat__value" data-count-to="2.3" data-count-decimals="1" data-count-suffix="%">0%</span>
+      </div>
+      <div class="metric-stat">
+        <span class="metric-stat__label">AOV Benchmark</span>
+        <span class="metric-stat__value" data-count-to="78" data-count-prefix="$">$0</span>
+      </div>
+      <div class="metric-stat">
+        <span class="metric-stat__label">Tracking</span>
+        <span class="metric-stat__value" data-count-to="98" data-count-suffix="%">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Medium supporting cards: refresh cycle + signal quality -->
+  <div class="metric-pair reveal reveal-delay-1">
+    <div class="metric-pair__item">
+      <span class="metric-pair__label">Creative Refresh</span>
+      <span class="metric-pair__value" style="font-size: var(--text-lg);">10–14 days</span>
+    </div>
+    <div class="metric-pair__divider"></div>
+    <div class="metric-pair__item">
+      <span class="metric-pair__label">Signal Quality</span>
+      <span class="metric-pair__value" style="font-size: var(--text-lg);">Optimized</span>
+    </div>
+  </div>
+
+  <div class="metric-mini reveal reveal-delay-2">
+    <div class="metric-mini__icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 17l5-5.5 4 3L21 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 5h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="metric-mini__body">
+      <span class="metric-mini__label">Coverage Standard</span>
+      <span class="metric-mini__value" data-count-to="98" data-count-suffix="%">0%</span>
+    </div>
+    <span class="metric-mini__delta">Tracking</span>
+  </div>
+
+  <div class="metric-mini reveal reveal-delay-3">
+    <div class="metric-mini__icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="metric-mini__body">
+      <span class="metric-mini__label">Target Efficiency</span>
+      <span class="metric-mini__value" data-count-to="4.2" data-count-decimals="1" data-count-suffix="x MER">0x MER</span>
+    </div>
+    <span class="metric-mini__delta">Goal</span>
+  </div>
+
+  <p class="metric-showcase__disclaimer">Illustrative only — built to show the reporting standard, not to claim historical client outcomes.</p>
+</section>
+
+<!-- ============================================
+     SERVICES
+     ============================================ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        Core Services
+      </div>
+      <h2 class="section-header__title">Full-stack growth,<br><em>engineered end to end.</em></h2>
+      <p class="section-header__lead">We combine business strategy, advertising, analytics, and conversion thinking into one focused growth system.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card glass-card glass-card--interactive reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="13" r="7.5" stroke="currentColor" stroke-width="1.6"/><circle cx="11" cy="13" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5L21 3M21 3h-4M21 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="service-card__title">Meta &amp; Google Ads</h3>
+        <p class="service-card__desc">Andromeda-era Meta architecture and Performance Max mastery — broad-audience, creative-as-targeting systems that scale without guesswork.</p>
+        <a href="services.html#paid-media" class="service-card__link">Explore Paid Media <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="service-card glass-card glass-card--interactive reveal reveal-delay-1">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M16.5 8.5c-1.6 0-2.9-1-3.4-2.4V16a4.4 4.4 0 11-3.8-4.4v2.6a1.8 1.8 0 101.6 1.8V2h2.6c.2 1.8 1.5 3.2 3.2 3.4v3.1h-.2z" fill="currentColor"/></svg>
+        </div>
+        <h3 class="service-card__title">TikTok Advertising</h3>
+        <p class="service-card__desc">In-Feed, Spark Ads, and TikTok Shop campaigns built on creative-led discovery — lower CPMs, faster testing, and native-feeling ads that don't look like ads.</p>
+        <a href="services.html#tiktok" class="service-card__link">Explore TikTok <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="service-card glass-card glass-card--interactive reveal reveal-delay-2">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 12.2l1.8 1.8 3.5-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="service-card__title">Conversion Tracking</h3>
+        <p class="service-card__desc">GTM, GA4, Event Tracking &amp; Server-Side Setup—accurate data, stronger attribution, and smarter optimization for sustainable growth.</p>
+        <a href="services.html#tracking" class="service-card__link">Explore Tracking <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="service-card glass-card glass-card--interactive reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7a2 2 0 012-2h9l5 4v9a2 2 0 01-2 2H6a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 5v4h5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10.5 10.5l4 2.5-4 2.5v-5z" fill="currentColor"/></svg>
+        </div>
+        <h3 class="service-card__title">Ad Creative &amp; Motion Graphics</h3>
+        <p class="service-card__desc">CGI product shots, scroll-stopping motion graphics, and UGC-style ad creative built to perform as the targeting signal itself, not just decoration.</p>
+        <a href="services.html#creative" class="service-card__link">Explore Creative <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="service-card glass-card glass-card--interactive reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="service-card__title">Analytics &amp; Reporting</h3>
+        <p class="service-card__desc">GA4, Meta Events Manager, and CAPI stitched into one source of truth — so every decision traces back to real revenue, not vanity metrics.</p>
+        <a href="services.html#analytics" class="service-card__link">Explore Analytics <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="service-card glass-card glass-card--interactive reveal reveal-delay-1">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="service-card__title">Marketing Automation</h3>
+        <p class="service-card__desc">GoHighLevel, Make, and WhatsApp flows that turn manual follow-up into a system — nurturing, reporting, and retention on autopilot.</p>
+        <a href="services.html#automation" class="service-card__link">Explore Automation <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="service-card glass-card glass-card--interactive reveal reveal-delay-2">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5.5 4 3L21 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 5h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="service-card__title">CRO &amp; Website Management</h3>
+        <p class="service-card__desc">Landing pages and product pages rebuilt around one goal — converting the traffic you're already paying for, not just displaying it.</p>
+        <a href="services.html#cro" class="service-card__link">Explore CRO <span class="btn__arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     THE RIZNEFY BLUEPRINT
+     ============================================ -->
+<section class="section" id="blueprint" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        The Riznefy Blueprint
+      </div>
+      <h2 class="section-header__title">A disciplined process,<br><em>for profitable scale.</em></h2>
+      <p class="section-header__lead">We identify the real bottlenecks, build the system, launch with discipline, and scale with control.</p>
+    </div>
+
+    <div class="blueprint-list">
+      <div class="blueprint-item glass-card reveal">
+        <h3 class="blueprint-item__title">01 — Audit &amp; Clarity</h3>
+        <p class="blueprint-item__desc">We map the current state of media, tracking, creative, offer, and conversion so the real bottleneck is obvious before anything else moves.</p>
+      </div>
+      <div class="blueprint-item glass-card reveal reveal-delay-1">
+        <h3 class="blueprint-item__title">02 — Build the System</h3>
+        <p class="blueprint-item__desc">Campaign structure, creative testing loops, landing-page priorities, and reporting standards get wired into one operating model.</p>
+      </div>
+      <div class="blueprint-item glass-card glass-card--interactive reveal reveal-delay-2">
+        <h3 class="blueprint-item__title">03 — Launch &amp; Learn</h3>
+        <p class="blueprint-item__desc">We test in a controlled way, read the signal quickly, and remove the kind of complexity that makes scaling feel expensive.</p>
+      </div>
+      <div class="blueprint-item glass-card reveal reveal-delay-3">
+        <h3 class="blueprint-item__title">04 — Scale with Control</h3>
+        <p class="blueprint-item__desc">Once the signal is stable, we widen what works, tighten what leaks, and keep growth anchored to margin instead of vanity.</p>
+      </div>
+    </div>
+
+    <div class="case-studies__cta">
+      <a href="blueprint.html" class="btn btn--ghost">See the Full Blueprint <span class="btn__arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     WHY RIZNEFY
+     ============================================ -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="why-panel glass-card reveal">
+      <h2 class="why-panel__title">Strategy first.<br><em>Scale second.</em></h2>
+      <p class="why-panel__body">Because growth is not just about spending more. It is about building better systems. It is about making the business easier to read. Easier to run. Easier to scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     WHAT MAKES US DIFFERENT
+     Desktop/tablet only — hidden on mobile per
+     client request (section felt too long as a
+     scroll on small screens).
+     ============================================ -->
+<section class="section section--desktop-only" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        The Difference
+      </div>
+      <h2 class="section-header__title">Most agencies vs. <em>Riznefy.</em></h2>
+    </div>
+
+    <div class="compare-table reveal">
+      <div class="compare-row compare-row--header">
+        <span class="compare-row__col compare-row__col--against">Most Agencies</span>
+        <span class="compare-row__col compare-row__col--for">Riznefy</span>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-cell--against">
+          <span class="compare-cell__icon compare-cell__icon--against">✕</span>
+          <div>
+            <span class="compare-cell__title">Start with tactics</span>
+            <span class="compare-cell__desc">Spend first, ask questions later.</span>
+          </div>
+        </div>
+        <div class="compare-cell compare-cell--for">
+          <span class="compare-cell__icon compare-cell__icon--for">✓</span>
+          <div>
+            <span class="compare-cell__title">Starts with strategy</span>
+            <span class="compare-cell__desc">The offer and economics come first.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-cell--against">
+          <span class="compare-cell__icon compare-cell__icon--against">✕</span>
+          <div>
+            <span class="compare-cell__title">Optimize in silos</span>
+            <span class="compare-cell__desc">Media, creative, and CRO never talk.</span>
+          </div>
+        </div>
+        <div class="compare-cell compare-cell--for">
+          <span class="compare-cell__icon compare-cell__icon--for">✓</span>
+          <div>
+            <span class="compare-cell__title">Connects every growth lever</span>
+            <span class="compare-cell__desc">One system, not five contractors.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-cell--against">
+          <span class="compare-cell__icon compare-cell__icon--against">✕</span>
+          <div>
+            <span class="compare-cell__title">Report on vanity metrics</span>
+            <span class="compare-cell__desc">Impressions and reach, not revenue.</span>
+          </div>
+        </div>
+        <div class="compare-cell compare-cell--for">
+          <span class="compare-cell__icon compare-cell__icon--for">✓</span>
+          <div>
+            <span class="compare-cell__title">Reports on revenue logic</span>
+            <span class="compare-cell__desc">The same P&amp;L numbers you already track.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-cell--against">
+          <span class="compare-cell__icon compare-cell__icon--against">✕</span>
+          <div>
+            <span class="compare-cell__title">Chase short-term activity</span>
+            <span class="compare-cell__desc">Busy work that resets every month.</span>
+          </div>
+        </div>
+        <div class="compare-cell compare-cell--for">
+          <span class="compare-cell__icon compare-cell__icon--for">✓</span>
+          <div>
+            <span class="compare-cell__title">Builds systems, not fragments</span>
+            <span class="compare-cell__desc">Infrastructure that compounds over time.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-cell--against">
+          <span class="compare-cell__icon compare-cell__icon--against">✕</span>
+          <div>
+            <span class="compare-cell__title">Make growth feel chaotic</span>
+            <span class="compare-cell__desc">Every month feels like starting over.</span>
+          </div>
+        </div>
+        <div class="compare-cell compare-cell--for">
+          <span class="compare-cell__icon compare-cell__icon--for">✓</span>
+          <div>
+            <span class="compare-cell__title">Makes growth feel controlled</span>
+            <span class="compare-cell__desc">You always know what's working and why.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TRUST BLOCK
+     ============================================ -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="trust-block reveal">
+      <h2 class="trust-block__title">Built for brands<br><em>that care about margin.</em></h2>
+      <p class="trust-block__body">We build systems that make growth easier to measure, easier to improve, and easier to trust.</p>
+    </div>
+
+    <div class="commitment-grid">
+      <div class="commitment-card glass-card reveal">
+        <div class="commitment-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" transform="rotate(45 12 12)"/></svg>
+        </div>
+        <span class="commitment-card__title">No Hype</span>
+        <p class="commitment-card__desc">We sell the audit, not the promise. If the numbers don't support scaling, we'll tell you before you spend a dollar.</p>
+      </div>
+
+      <div class="commitment-card glass-card reveal reveal-delay-1">
+        <div class="commitment-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5V5a2 2 0 012-2h9l5 5v11.5a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <span class="commitment-card__title">No Jargon</span>
+        <p class="commitment-card__desc">Every report ties back to numbers you already track — ROAS, MER, CPA, revenue — not engagement or reach.</p>
+      </div>
+
+      <div class="commitment-card glass-card reveal reveal-delay-2">
+        <div class="commitment-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
+        <span class="commitment-card__title">No Confusion</span>
+        <p class="commitment-card__desc">Activity is not progress. We measure what moved the P&amp;L, not what looked busy on a dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SAMPLE SYSTEMS
+     Illustrative strategy frameworks only — explicitly
+     NOT framed as real client results. This section
+     exists so a new agency can show how it thinks about
+     growth without fabricating proof it doesn't have yet.
+     ============================================ -->
+<section class="section" id="sample-systems" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        Sample Systems
+      </div>
+      <h2 class="section-header__title">Strategy snapshots,<br><em>built to show the standard.</em></h2>
+      <p class="section-header__lead">These are illustrative frameworks showing how Riznefy thinks about growth for different markets — useful for evaluation, not historical proof.</p>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-card glass-card glass-card--interactive reveal">
+        <span class="case-card__tag">D2C · Beauty</span>
+        <h3 class="case-card__title">A launch stack built around margin, not noise</h3>
+        <p class="case-card__desc">For a skincare brand entering the US market, the focus would be on offer clarity, a tight creative matrix, and a tracking setup that keeps the first signal clean.</p>
+        <div class="case-card__stats">
+          <div class="case-card__stat">
+            <span class="case-card__stat-value">12</span>
+            <span class="case-card__stat-label">Creative Hooks</span>
+          </div>
+          <div class="case-card__stat">
+            <span class="case-card__stat-value">2.2%</span>
+            <span class="case-card__stat-label">CVR Benchmark</span>
+          </div>
+        </div>
+        <a href="systems.html#d2c-beauty" class="case-card__link">View the Strategy <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="case-card glass-card glass-card--interactive reveal reveal-delay-1">
+        <span class="case-card__tag">DTC · Apparel</span>
+        <h3 class="case-card__title">Cleaner structure, stronger offer stack</h3>
+        <p class="case-card__desc">For fashion, the goal is fewer loose ad sets, better merchandising, and a creative system that refreshes before fatigue turns expensive.</p>
+        <div class="case-card__stats">
+          <div class="case-card__stat">
+            <span class="case-card__stat-value">7-day</span>
+            <span class="case-card__stat-label">Refresh Cadence</span>
+          </div>
+          <div class="case-card__stat">
+            <span class="case-card__stat-value">3 layers</span>
+            <span class="case-card__stat-label">Ad Structure</span>
+          </div>
+        </div>
+        <a href="systems.html#dtc-apparel" class="case-card__link">View the Strategy <span class="btn__arrow">↗</span></a>
+      </div>
+
+      <div class="case-card glass-card glass-card--interactive reveal reveal-delay-2">
+        <span class="case-card__tag">B2B · SaaS</span>
+        <h3 class="case-card__title">Track first, spend second</h3>
+        <p class="case-card__desc">For lead gen, the premium move is to build visibility before volume — then tie every handoff to the real pipeline instead of isolated ad metrics.</p>
+        <div class="case-card__stats">
+          <div class="case-card__stat">
+            <span class="case-card__stat-value">0 → 1</span>
+            <span class="case-card__stat-label">Funnel Build</span>
+          </div>
+          <div class="case-card__stat">
+            <span class="case-card__stat-value">6 wks</span>
+            <span class="case-card__stat-label">Launch Window</span>
+          </div>
+        </div>
+        <a href="systems.html#b2b-saas" class="case-card__link">View the Strategy <span class="btn__arrow">↗</span></a>
+      </div>
+    </div>
+
+    <div class="case-studies__cta">
+      <a href="systems.html" class="btn btn--ghost">Explore the Full Method <span class="btn__arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     BLOG / RESOURCES
+     Educational content for organic authority — a new
+     agency's most credible early trust signal is showing
+     it can teach, not just claiming results it doesn't
+     have proof for yet.
+     ============================================ -->
+<section class="section" id="insights" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        Resources
+      </div>
+      <h2 class="section-header__title">Free thinking,<br><em>not gated PDFs.</em></h2>
+      <p class="section-header__lead">Practical breakdowns of the frameworks and formulas we actually use — no email wall.</p>
+    </div>
+
+    <div class="case-grid">
+      <article class="case-card glass-card glass-card--interactive reveal">
+        <span class="case-card__tag">Paid Media</span>
+        <h3 class="case-card__title">How to audit your Meta ad account in 30 minutes</h3>
+        <p class="case-card__desc">The exact checklist we run before touching any budget — creative fatigue, audience overlap, event match quality, and the three settings most accounts get wrong.</p>
+        <a href="insights.html#meta-audit" class="case-card__link">Read the Guide <span class="btn__arrow">↗</span></a>
+      </article>
+
+      <article class="case-card glass-card glass-card--interactive reveal reveal-delay-1">
+        <span class="case-card__tag">Analytics</span>
+        <h3 class="case-card__title">ROAS vs. MER: which number should you trust?</h3>
+        <p class="case-card__desc">Why platform-reported ROAS and blended MER tell different stories — and which one should actually drive your budget decisions.</p>
+        <a href="insights.html#roas-vs-mer" class="case-card__link">Read the Guide <span class="btn__arrow">↗</span></a>
+      </article>
+
+      <article class="case-card glass-card glass-card--interactive reveal reveal-delay-2">
+        <span class="case-card__tag">Creative Strategy</span>
+        <h3 class="case-card__title">The hook formula behind scroll-stopping ads</h3>
+        <p class="case-card__desc">A breakdown of the first-three-seconds structure we test across every new creative batch, with examples of what to cut.</p>
+        <a href="insights.html#hook-formula" class="case-card__link">Read the Guide <span class="btn__arrow">↗</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     FAQ
+     ============================================ -->
+<section class="section" id="faq" style="padding-top: 0;">
+  <div class="container" style="max-width: 800px;">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        Common Questions
+      </div>
+      <h2 class="section-header__title">Before you book the call.</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          What size brand do you typically work with?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>Most of our partners are spending $10K–$150K/month across paid channels before they come to us — established enough to have real data, but past the point where guesswork is acceptable. If you're earlier than that, we'll tell you honestly on the call rather than take you on anyway.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          How is this different from our last agency?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>Most agencies report on activity — impressions, clicks, "engagement." We report on the same P&amp;L numbers you already track: ROAS, MER, CPA, and revenue. If a number doesn't tie back to profit, we don't lead with it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          Do you require exclusivity across all our channels?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>No. Some partners bring us in for Meta and Google while running TikTok in-house, or the reverse. We'll tell you upfront if a split setup is going to hurt attribution before we agree to it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          Who actually works on our account?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>A senior strategist stays on your account from day one — not a junior handed a template. Media buying, creative, and analytics are specialist roles on our side, coordinated by the strategist you actually talk to.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          What happens on the strategy call?
+          <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>We audit your current account live, walk through where the revenue is leaking, and tell you plainly whether we think we can move the number — no slide deck, no generic pitch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA
+     ============================================ -->
+<section class="section" id="contact" style="padding-top: 0;">
+  <div class="container">
+    <div class="cta-panel reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        Ready to Scale Profitably?
+      </div>
+      <h2 class="cta-panel__title">Let's build your<br><em>profit engine.</em></h2>
+      <p class="cta-panel__lead">If you want cleaner signal, sharper execution, and a more disciplined path to scale, Riznefy is built for that.</p>
+      <div class="cta-panel__actions">
+        <a href="contact.html" class="btn btn--primary">Book a Strategy Call <span class="btn__arrow">↗</span></a>
+        <a href="blueprint.html" class="btn btn--ghost">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Explore the Blueprint
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo-link">
+          <img src="assets/footer-logo.png" alt="Riznefy" class="footer__logo-lockup">
+        </a>
+        <p class="footer__tagline">Performance marketing for ambitious e-commerce and D2C brands.</p>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Agency</span>
+        <a href="services.html" class="footer__link">Services</a>
+        <a href="blueprint.html" class="footer__link">Blueprint</a>
+        <a href="insights.html" class="footer__link">Resources</a>
+        <a href="about.html" class="footer__link">About</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Services</span>
+        <a href="services.html#paid-media" class="footer__link">Meta &amp; Google Ads</a>
+        <a href="services.html#tiktok" class="footer__link">TikTok Advertising</a>
+        <a href="services.html#tracking" class="footer__link">Conversion Tracking</a>
+        <a href="services.html#automation" class="footer__link">Automation</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Legal</span>
+        <a href="privacy.html" class="footer__link">Privacy Policy</a>
+        <a href="terms.html" class="footer__link">Terms of Service</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M14 8.5h-1.5c-.6 0-1 .4-1 1V11h2.4l-.3 2.4h-2.1V21h-2.5v-7.6H7V11h1.9V9.2c0-1.9 1.1-3 2.9-3H14v2.3z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 015 0V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <span class="footer__copyright">Strategy · Systems · Scale — © 2026 Riznefy</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     FLOATING ACTIONS
+     ============================================ -->
+<a href="https://wa.me/8801712650589" class="fab-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l4.93-1.38C8.42 21.5 10.15 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M8.5 8.5c.2-.4.6-.4.9-.4h.6c.2 0 .5 0 .7.5.3.6.9 2 1 2.1.1.2.1.4 0 .6-.1.2-.2.3-.4.5s-.4.4-.5.6c-.2.2-.3.4-.1.7.2.4.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.6-.2.2.1 1.6.8 1.9 1 .3.1.5.2.5.3.1.4.1.9-.1 1.4-.2.5-1.2 1.1-1.7 1.1-.4 0-.9.1-3-.7-2.6-1-4.2-3.7-4.3-3.9-.1-.2-1-1.3-1-2.5 0-1.2.6-1.8.8-2z" fill="#0A0A0A"/>
+  </svg>
+</a>
+<a href="contact.html" class="fab-book-call">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 3h3.5l1.5 5-2.5 1.5a11 11 0 0 0 5.5 5.5L14 12.5l5 1.5v3.5c0 1.1-.9 2-2 2C9.4 19.5 4.5 14.6 4.5 8c0-1.1.9-2 2-2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>
+  Book a Call
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Riznefy Blueprint — Our Growth Methodology, Explained</title>
+<meta name="description" content="The exact system behind every Riznefy engagement — audit, build, launch, and scale — built on 2026 platform-AI principles like creative-as-targeting and profit-first bidding.">
+<link rel="canonical" href="https://riznefy.com/blueprint.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:title" content="The Riznefy Blueprint — Our Growth Methodology, Explained">
+<meta property="og:description" content="Audit, build, launch, scale — the exact system behind every Riznefy engagement, built on 2026 platform-AI principles.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://riznefy.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://riznefy.com/blueprint.html">
+<meta property="og:site_name" content="Riznefy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Riznefy Blueprint — Our Growth Methodology, Explained">
+<meta name="twitter:description" content="Audit, build, launch, scale — the exact system behind every Riznefy engagement.">
+<meta name="twitter:image" content="https://riznefy.com/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  /* ============================================
+     BLUEPRINT PAGE — PAGE-SPECIFIC STYLES
+     ============================================ */
+
+  .page-header {
+    padding-top: var(--space-2);
+    text-align: center;
+    position: relative;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 420px;
+    background: var(--overlay-radial-hero);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page-header__content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+  .page-header .hero__badge-wrap { margin-bottom: var(--space-6); }
+  .page-header__title {
+    margin-bottom: var(--space-4);
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+  }
+  .page-header__title em {
+    font-style: italic;
+    font-weight: 600;
+    background: var(--gradient-emerald-text);
+    background-size: 120% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-right: 0.12em;
+    display: inline-block;
+  }
+  .page-header__lead {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin-inline: auto;
+    margin-bottom: var(--space-7);
+  }
+
+  /* ---- Principle strip: 4 compact metric-style callouts under the hero ---- */
+  .principle-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  @media (min-width: 640px) {
+    .principle-strip { grid-template-columns: repeat(4, 1fr); }
+  }
+  .principle-strip__item {
+    padding: var(--space-4) var(--space-3);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+    text-align: center;
+  }
+  .principle-strip__value {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--emerald-400);
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+  .principle-strip__label {
+    font-family: var(--font-label);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    line-height: 1.3;
+    display: block;
+  }
+
+  /* ---- Phase timeline (numbered, alternating detail blocks) ---- */
+  .phase-block {
+    scroll-margin-top: 90px;
+    padding-block: var(--space-7);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .phase-block:last-of-type { border-bottom: none; }
+
+  .phase-block__head {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    margin-bottom: var(--space-5);
+  }
+  .phase-block__num {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-emerald);
+    color: var(--emerald-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+  }
+  .phase-block__eyebrow {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--emerald-400);
+    margin-bottom: var(--space-2);
+  }
+  .phase-block__title {
+    color: var(--text-primary);
+    font-size: var(--text-2xl);
+    line-height: 1.2;
+    margin-bottom: var(--space-3);
+  }
+  .phase-block__lead {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 680px;
+  }
+
+  .phase-block__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 860px) {
+    .phase-block__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-6);
+    }
+  }
+  .phase-block__body p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .phase-block__body p:last-child { margin-bottom: 0; }
+
+  .deliverable-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .deliverable-list__title {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-1);
+  }
+  .deliverable-item {
+    display: flex;
+    gap: var(--space-3);
+  }
+  .deliverable-item__icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--emerald-400);
+    margin-top: 2px;
+  }
+  .deliverable-item__title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .deliverable-item__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+  .benchmark-note {
+    margin-top: var(--space-5);
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    line-height: var(--leading-normal);
+    font-style: italic;
+  }
+
+  /* ---- Quick-jump pills (reused pattern from systems.html) ---- */
+  .system-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+  }
+  .system-nav__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-pill);
+    padding: var(--space-3) var(--space-5);
+    background: var(--bg-glass);
+    transition: border-color var(--duration-base) ease, color var(--duration-base) ease;
+  }
+  .system-nav__pill:hover {
+    border-color: var(--border-emerald);
+    color: var(--emerald-400);
+  }
+
+  /* ---- Principle cards (2026 platform-AI operating principles) ---- */
+  .principle-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  @media (min-width: 640px) {
+    .principle-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .principle-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-emerald);
+    color: var(--emerald-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+  }
+  .principle-card__icon svg { width: 20px; height: 20px; }
+  .principle-card__title {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+  }
+  .principle-card__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ---- Governance strip: how we keep score, honestly ---- */
+  .governance-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .governance-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    background: var(--bg-glass);
+  }
+  .governance-item__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--emerald-400);
+    margin-top: 1px;
+  }
+  .governance-item__title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .governance-item__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://riznefy.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blueprint",
+      "item": "https://riznefy.com/blueprint.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav" aria-label="Primary navigation">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" fetchpriority="high"></span>
+    <span>Riznefy</span>
+  </a>
+
+  <div class="nav__links">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="blueprint.html" class="nav__link is-active">Blueprint</a>
+    <a href="insights.html" class="nav__link">Resources</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="contact.html" class="btn btn--primary">
+      Book a Call <span class="btn__arrow">↗</span>
+    </a>
+  </div>
+
+  <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+    <span class="nav__toggle-icon"><span></span><span></span><span></span></span>
+  </button>
+</nav>
+
+<!-- ============================================
+     MOBILE FULL-SCREEN MENU
+     ============================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__header">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__logo-badge"><img src="assets/logo.svg" alt="Riznefy" width="36" height="36" loading="lazy"></span>
+      <span>Riznefy</span>
+    </a>
+    <button class="nav__toggle mobile-menu__close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 5l14 14M19 5L5 19" stroke="var(--emerald-400)" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="mobile-menu__list">
+    <li><a href="index.html" class="mobile-menu__link">Home <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="services.html" class="mobile-menu__link">Services <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="blueprint.html" class="mobile-menu__link">Blueprint <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="insights.html" class="mobile-menu__link">Resources <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="about.html" class="mobile-menu__link">About <span class="mobile-menu__link-icon">↗</span></a></li>
+    <li><a href="contact.html" class="mobile-menu__link">Contact <span class="mobile-menu__link-icon">↗</span></a></li>
+  </ul>
+
+  <a href="contact.html" class="btn btn--primary" style="width: 100%; margin-bottom: var(--space-4);">
+    Book a Strategy Call <span class="btn__arrow">↗</span>
+  </a>
+  <a href="systems.html" class="btn btn--ghost" style="width: 100%;">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> See Sample Systems
+  </a>
+</div>
+
+<!-- ============================================
+     PAGE HEADER
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <div class="page-header__content">
+      <div class="hero__badge-wrap">
+        <span class="badge"><span class="badge__dot"></span> The Riznefy Blueprint</span>
+      </div>
+      <h1 class="page-header__title">A disciplined system, <em>not a bag of tactics.</em></h1>
+      <p class="page-header__lead">This is the exact methodology behind every Riznefy engagement — how we audit, build, launch, and scale, and the 2026 platform-AI principles we build it on.</p>
+
+      <div class="principle-strip reveal">
+        <div class="principle-strip__item">
+          <span class="principle-strip__value">4</span>
+          <span class="principle-strip__label">Phases, One System</span>
+        </div>
+        <div class="principle-strip__item">
+          <span class="principle-strip__value">1÷NPM</span>
+          <span class="principle-strip__label">Target ROAS Formula</span>
+        </div>
+        <div class="principle-strip__item">
+          <span class="principle-strip__value">Margin</span>
+          <span class="principle-strip__label">Not Vanity Metrics</span>
+        </div>
+        <div class="principle-strip__item">
+          <span class="principle-strip__value">2026</span>
+          <span class="principle-strip__label">Platform-AI Native</span>
+        </div>
+      </div>
+
+      <nav class="system-nav" aria-label="Jump to section">
+        <a href="#phases" class="system-nav__pill">The 4 Phases</a>
+        <a href="#principles" class="system-nav__pill">Operating Principles</a>
+        <a href="#governance" class="system-nav__pill">How We Keep Score</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================
+     WHY A BLUEPRINT (not just "services")
+     ============================================ -->
+<section class="section" style="padding-top: var(--space-6);">
+  <div class="container">
+    <div class="why-panel glass-card reveal">
+      <h2 class="why-panel__title">Services describe what we do.<br><em>The Blueprint describes how we think.</em></h2>
+      <p class="why-panel__body">Most agencies sell a list of deliverables — ads managed, posts scheduled, reports sent. The Blueprint is different: it's the decision-making process underneath every account, the same four phases whether the budget is $2K or $200K a month. Tactics change by platform and season. This doesn't.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     THE 4 PHASES — DETAILED
+     ============================================ -->
+<section id="phases">
+  <div class="container">
+    <div class="section-header section-header--center reveal" style="padding-top: var(--space-7);">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        The Four Phases
+      </div>
+      <h2 class="section-header__title">From audit to scale,<br><em>in a fixed order.</em></h2>
+      <p class="section-header__lead">We don't skip phases to move faster. A system built out of order is the single most common reason paid media underperforms.</p>
+    </div>
+  </div>
+
+  <!-- PHASE 01 — AUDIT & CLARITY -->
+  <div class="container">
+  <div class="phase-block" id="phase-audit">
+    <div class="phase-block__head reveal">
+      <span class="phase-block__num">01</span>
+      <div>
+        <div class="phase-block__eyebrow">Week 1 — Diagnosis Before Prescription</div>
+        <h3 class="phase-block__title">Audit &amp; Clarity</h3>
+        <p class="phase-block__lead">We map the current state of media, tracking, creative, offer, and conversion so the real bottleneck is obvious before anything else moves — not the bottleneck a vendor assumes because it's the service they sell.</p>
+      </div>
+    </div>
+
+    <div class="phase-block__grid">
+      <div class="phase-block__body reveal">
+        <p>Every audit starts with the numbers you already have: current ROAS or MER by channel, blended CAC, net margin, and where in the funnel drop-off is worst. Most accounts have one real constraint — a tracking gap, a weak offer, a creative that's fatigued, or a landing page that leaks — and the rest is noise until that constraint is fixed.</p>
+        <p>We also check Event Match Quality in Meta Events Manager and conversion tracking health in Google Ads and GA4 — a 2026 account with a sub-7 EMQ score is often "underperforming" for reasons that have nothing to do with creative or targeting at all.</p>
+      </div>
+
+      <div class="deliverable-list reveal">
+        <span class="deliverable-list__title">What You Get</span>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Channel &amp; Tracking Audit</div>
+            <div class="deliverable-item__desc">Pixel/CAPI health, Event Match Quality, GA4-Ads alignment, and attribution gaps.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Bottleneck Diagnosis</div>
+            <div class="deliverable-item__desc">One clearly ranked constraint — offer, creative, tracking, or conversion — not five vague suggestions.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">POAS Target Set</div>
+            <div class="deliverable-item__desc">Target ROAS calculated as 1 ÷ net profit margin — the number every later decision is measured against.</div>
+          </div>
+        </div>
+        <p class="benchmark-note">Illustrative note: a full audit typically runs 5–7 business days depending on how many channels and how clean existing tracking already is.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- PHASE 02 — BUILD THE SYSTEM -->
+  <div class="container">
+  <div class="phase-block" id="phase-build">
+    <div class="phase-block__head reveal">
+      <span class="phase-block__num">02</span>
+      <div>
+        <div class="phase-block__eyebrow">Weeks 2–3 — Infrastructure Before Spend</div>
+        <h3 class="phase-block__title">Build the System</h3>
+        <p class="phase-block__lead">Campaign structure, creative testing loops, landing-page priorities, and reporting standards get wired into one operating model — built once, reused every month, instead of rebuilt from scratch each time something breaks.</p>
+      </div>
+    </div>
+
+    <div class="phase-block__grid">
+      <div class="phase-block__body reveal">
+        <p>For paid social, this means architecture built for how Meta and TikTok's AI actually work in 2026 — consolidated ad sets instead of a dozen narrow ones, Advantage+ Audience on by default, and a creative production pipeline sized to feed the algorithm rather than starve it. For search and shopping, it means Smart Bidding structured around a real tCPA or tROAS, not a guess.</p>
+        <p>Reporting gets standardized here too — the same P&amp;L-linked numbers (ROAS, MER, CPA, blended CAC) in every weekly check-in, so performance conversations stay anchored to revenue instead of drifting toward reach and engagement.</p>
+      </div>
+
+      <div class="deliverable-list reveal">
+        <span class="deliverable-list__title">What You Get</span>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Campaign Architecture</div>
+            <div class="deliverable-item__desc">ASC / CBO / ABO split mapped to your budget and funnel stage — not a template copy-pasted across clients.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Creative Testing Loop</div>
+            <div class="deliverable-item__desc">A weekly hook-and-angle cadence, sized so the algorithm always has fresh signal to learn from.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Reporting Standard</div>
+            <div class="deliverable-item__desc">One dashboard, one set of numbers, reviewed on the same cadence every week.</div>
+          </div>
+        </div>
+        <p class="benchmark-note">Illustrative note: build timelines vary by channel count — a single-platform build can be live in under a week; a full-funnel, multi-channel build usually needs the full two-to-three-week window.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- PHASE 03 — LAUNCH & LEARN -->
+  <div class="container">
+  <div class="phase-block" id="phase-launch">
+    <div class="phase-block__head reveal">
+      <span class="phase-block__num">03</span>
+      <div>
+        <div class="phase-block__eyebrow">Weeks 3–6 — Controlled Signal, Not Guesswork</div>
+        <h3 class="phase-block__title">Launch &amp; Learn</h3>
+        <p class="phase-block__lead">We test in a controlled way, read the signal quickly, and remove the kind of complexity that makes scaling feel expensive — no big-bang launch, no fifteen ad sets fighting each other for the algorithm's attention.</p>
+      </div>
+    </div>
+
+    <div class="phase-block__grid">
+      <div class="phase-block__body reveal">
+        <p>Launch respects each platform's learning phase — Meta and TikTok typically need roughly 50 conversion events within a rolling window before delivery stabilizes, so budgets are set to reach that threshold within days, not weeks. Scaling only starts once ROAS has held steady for several consecutive days, and even then, budget moves in the 20–30% range every 48–72 hours rather than in one large jump that resets the learning phase.</p>
+        <p>Creative-as-targeting is treated as a first principle here: different hooks and angles are understood to reach different buyer segments on the same product, so "testing audiences" mostly gives way to testing creative variation instead.</p>
+      </div>
+
+      <div class="deliverable-list reveal">
+        <span class="deliverable-list__title">What You Get</span>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Staged Launch Plan</div>
+            <div class="deliverable-item__desc">Budget sequenced to clear the platform's learning phase without wasting spend on unstable delivery.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Fatigue Monitoring</div>
+            <div class="deliverable-item__desc">Frequency, hook rate, and CTR tracked weekly so creative gets refreshed before performance actually drops.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Weekly Read-Outs</div>
+            <div class="deliverable-item__desc">A short, plain-language summary of what moved, what didn't, and what changes next.</div>
+          </div>
+        </div>
+        <p class="benchmark-note">Illustrative note: a ~50-conversion learning threshold and 48–72 hour scaling cadence are general 2026 platform guidelines — actual thresholds vary by ad account history and category.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- PHASE 04 — SCALE WITH CONTROL -->
+  <div class="container">
+  <div class="phase-block" id="phase-scale">
+    <div class="phase-block__head reveal">
+      <span class="phase-block__num">04</span>
+      <div>
+        <div class="phase-block__eyebrow">Month 2 Onward — Widen What Works</div>
+        <h3 class="phase-block__title">Scale with Control</h3>
+        <p class="phase-block__lead">Once the signal is stable, we widen what works, tighten what leaks, and keep growth anchored to margin instead of vanity — scale is a discipline, not just a bigger number in the budget field.</p>
+      </div>
+    </div>
+
+    <div class="phase-block__grid">
+      <div class="phase-block__body reveal">
+        <p>Winning ad sets get duplicated at 2–3x budget rather than having their original budget inflated directly — this resets delivery more gently and gives a cleaner read on whether performance holds at the new spend level. CBO campaigns are left to redistribute across ad sets rather than manually rebalanced, since fighting the algorithm's own allocation usually costs more than it saves.</p>
+        <p>Every scale decision is checked against the POAS target set in Phase 01, not against last month's number in isolation — a channel that's "growing" but sliding below target ROAS is a signal to tighten, not a reason to celebrate.</p>
+      </div>
+
+      <div class="deliverable-list reveal">
+        <span class="deliverable-list__title">What You Get</span>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Margin-Anchored Scaling</div>
+            <div class="deliverable-item__desc">Budget grows against your POAS target, not against a vanity ROAS number that ignores true margin.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Cross-Channel Reallocation</div>
+            <div class="deliverable-item__desc">Spend shifts toward whichever channel is producing real profit this month — Meta, TikTok, or Google.</div>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <svg class="deliverable-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <div class="deliverable-item__title">Monthly Strategy Review</div>
+            <div class="deliverable-item__desc">A working session on what to widen, what to cut, and what the next month's target should be.</div>
+          </div>
+        </div>
+        <p class="benchmark-note">Illustrative note: a 2–3x duplication step and 20–30% incremental scaling range are general guidelines for 2026 platform delivery systems, not a guarantee of any specific outcome.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ============================================
+     OPERATING PRINCIPLES — 2026 PLATFORM-AI
+     ============================================ -->
+<section class="section" id="principles" style="padding-top: var(--space-7);">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        Operating Principles
+      </div>
+      <h2 class="section-header__title">Built for how the platforms<br><em>actually work in 2026.</em></h2>
+      <p class="section-header__lead">Every phase above runs on these principles — the assumptions that changed once Meta's Andromeda update and comparable platform-AI shifts made old-school manual targeting far less effective.</p>
+    </div>
+
+    <div class="principle-grid">
+      <div class="glass-card reveal">
+        <span class="principle-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 6h10M4 18h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3 class="principle-card__title">Creative Is the Targeting</h3>
+        <p class="principle-card__desc">In the Andromeda era, the algorithm reads your creative and finds who responds — an "office worker with back pain" hook and an "athlete recovery" hook on the same product genuinely reach different buyers. We test creative angles the way accounts used to test audiences.</p>
+      </div>
+
+      <div class="glass-card reveal reveal-delay-1">
+        <span class="principle-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v4M12 18v4M22 12h-4M6 12H2M19 5l-2.8 2.8M7.8 16.2 5 19M19 19l-2.8-2.8M7.8 7.8 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3 class="principle-card__title">Broad by Default</h3>
+        <p class="principle-card__desc">Advantage+ Audience runs on by default. Narrow interest-stacking is now a hint the algorithm mostly overrides anyway — we consolidate ad sets and let the platform's own signal-matching do the targeting work.</p>
+      </div>
+
+      <div class="glass-card reveal reveal-delay-2">
+        <span class="principle-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 15l4-5 3 3 5-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3 class="principle-card__title">Profit-First Bidding</h3>
+        <p class="principle-card__desc">Every target ROAS is derived, not guessed: Target ROAS = 1 ÷ Net Profit Margin. A 35% margin sets a 2.86x floor — below that, spend is unprofitable no matter how good the surface-level numbers look.</p>
+      </div>
+
+      <div class="glass-card reveal reveal-delay-3">
+        <span class="principle-card__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5V5a2 2 0 012-2h9l5 5v11.5a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3 class="principle-card__title">First-Party Data as Infrastructure</h3>
+        <p class="principle-card__desc">Customer lists feed Advantage+ Audience and lookalike seeds. CAPI recovers a meaningful share of iOS-blocked events. Event Match Quality is treated as a KPI in its own right, not an afterthought in Events Manager.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     HOW WE KEEP SCORE (governance / honesty)
+     ============================================ -->
+<section class="section" id="governance" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow__line"></span>
+        How We Keep Score
+      </div>
+      <h2 class="section-header__title">The Blueprint only works<br><em>if we're honest about it.</em></h2>
+    </div>
+
+    <div class="governance-list reveal" style="max-width: 720px; margin-inline: auto;">
+      <div class="governance-item">
+        <svg class="governance-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div>
+          <div class="governance-item__title">We report against the target set in Phase 01</div>
+          <div class="governance-item__desc">Not against a cherry-picked best week. If a channel is below its POAS target, that's the headline — not the channel that happened to look good.</div>
+        </div>
+      </div>
+      <div class="governance-item">
+        <svg class="governance-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div>
+          <div class="governance-item__title">Every recommendation ties back to revenue</div>
+          <div class="governance-item__desc">Reach, impressions, and engagement can appear in a report as context — they're never the reason we recommend increasing budget.</div>
+        </div>
+      </div>
+      <div class="governance-item">
+        <svg class="governance-item__icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div>
+          <div class="governance-item__title">We'll tell you to stop spending before we tell you to spend more</div>
+          <div class="governance-item__desc">If the audit shows the offer or funnel isn't ready for scale, that's the conversation we have first — even though it delays revenue for us too.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA
+     ============================================ -->
+<section class="section" style="padding-top: var(--space-7);">
+  <div class="container">
+    <div class="cta-panel glass-card reveal" style="text-align:center; max-width: 720px; margin-inline: auto;">
+      <h2 class="cta-panel__title" style="margin-bottom: var(--space-4);">See the Blueprint applied <em>to your business.</em></h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-base); margin-bottom: var(--space-6); max-width: 520px; margin-inline: auto;">On the strategy call, we walk through your actual account against this exact framework — live, not from a template.</p>
+      <div class="cta-panel__actions" style="justify-content:center;">
+        <a href="contact.html" class="btn btn--primary">Book a Strategy Call <span class="btn__arrow">↗</span></a>
+        <a href="systems.html" class="btn btn--ghost">See Sample Systems <span class="btn__arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo-link">
+          <img src="assets/footer-logo.png" alt="Riznefy" class="footer__logo-lockup">
+        </a>
+        <p class="footer__tagline">Performance marketing for ambitious e-commerce and D2C brands.</p>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Agency</span>
+        <a href="services.html" class="footer__link">Services</a>
+        <a href="blueprint.html" class="footer__link">Blueprint</a>
+        <a href="insights.html" class="footer__link">Resources</a>
+        <a href="about.html" class="footer__link">About</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Services</span>
+        <a href="services.html#paid-media" class="footer__link">Meta &amp; Google Ads</a>
+        <a href="services.html#tiktok" class="footer__link">TikTok Advertising</a>
+        <a href="services.html#tracking" class="footer__link">Conversion Tracking</a>
+        <a href="services.html#automation" class="footer__link">Automation</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__col-title">Legal</span>
+        <a href="privacy.html" class="footer__link">Privacy Policy</a>
+        <a href="terms.html" class="footer__link">Terms of Service</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M14 8.5h-1.5c-.6 0-1 .4-1 1V11h2.4l-.3 2.4h-2.1V21h-2.5v-7.6H7V11h1.9V9.2c0-1.9 1.1-3 2.9-3H14v2.3z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 015 0V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <span class="footer__copyright">Strategy · Systems · Scale — © 2026 Riznefy</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     FLOATING ACTIONS
+     ============================================ -->
+<a href="https://wa.me/8801712650589" class="fab-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l4.93-1.38C8.42 21.5 10.15 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M8.5 8.5c.2-.4.6-.4.9-.4h.6c.2 0 .5 0 .7.5.3.6.9 2 1 2.1.1.2.1.4 0 .6-.1.2-.2.3-.4.5s-.4.4-.5.6c-.2.2-.3.4-.1.7.2.4.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.6-.2.2.1 1.6.8 1.9 1 .3.1.5.2.5.3.1.4.1.9-.1 1.4-.2.5-1.2 1.1-1.7 1.1-.4 0-.9.1-3-.7-2.6-1-4.2-3.7-4.3-3.9-.1-.2-1-1.3-1-2.5 0-1.2.6-1.8.8-2z" fill="#0A0A0A"/>
+  </svg>
+</a>
+<a href="contact.html" class="fab-book-call">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 3h3.5l1.5 5-2.5 1.5a11 11 0 0 0 5.5 5.5L14 12.5l5 1.5v3.5c0 1.1-.9 2-2 2C9.4 19.5 4.5 14.6 4.5 8c0-1.1.9-2 2-2z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>
+  Book a Call
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
